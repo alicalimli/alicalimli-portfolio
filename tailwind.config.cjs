@@ -1,17 +1,29 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx,html}", "./*.html"],
+  darkMode: ["class", '[data-mode="theme-dark"]'],
   theme: {
-    extend: {
-      colors: {
-        "dark-main": "#212529",
-        "dark-secondary": "#2A3036",
-        "dark-muted": "#ADB5BD",
-        "dark-muted-hard": "#868E96",
+    themes: {
+      dark: {
+        "text-main": "#fff",
+        "bg-main": "#212529",
+        "bg-secondary": "#2A3036",
+        "muted-main": "#ADB5BD",
+        "muted-secondary": "#868E96",
       },
     },
+    colors: {
+      white: "#fff",
+      black: "#000",
+      "text-main": "#111",
+      "bg-main": "#fff",
+      "bg-secondary": "#fff",
+      "muted-main": "#fff",
+      "muted-secondary": "#fff",
+    },
+
     fontFamily: {
       poppins: ["Poppins"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-theme-switcher")],
 };
