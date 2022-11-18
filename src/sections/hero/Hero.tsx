@@ -1,5 +1,6 @@
 import React from "react";
 import { acmessenger, moviematrix } from "../../assets";
+import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 
 const navLinksArr = ["Projects", "About", "Contact"];
 
@@ -19,12 +20,22 @@ const featuredProjectsArr = [
 ];
 
 const Hero = () => {
+  const { projectCursor, defaultCursor } = useCursorContext();
+
   const navLinks = navLinksArr.map((navLink) => (
     <li className="text-text-main text-lg">{navLink}</li>
   ));
 
+  const projectMouseEnter = () => projectCursor();
+
+  const projectMouseLeave = () => defaultCursor();
+
   const featuredProjects = featuredProjectsArr.map((proj) => (
-    <li key={proj.name}>
+    <li
+      key={proj.name}
+      onMouseEnter={projectMouseEnter}
+      onMouseLeave={projectMouseLeave}
+    >
       <a className="flex flex-col w-full gap-4 ">
         <div className="w-full h-96 inline-block bg-bg-secondary p-12">
           <img src={proj.img} className="object-contain h-full w-full" />

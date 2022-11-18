@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 
 const CustomCursor = () => {
   const [mousePos, setMousePos] = useState({
@@ -7,8 +8,7 @@ const CustomCursor = () => {
     y: 0,
   });
 
-  const [cursorVariant, setCursorVariant] = useState("default");
-  const [cursorTitle, setCursorTitle] = useState("View");
+  const { cursorSettings } = useCursorContext();
 
   useEffect(() => {
     document.addEventListener("mousemove", (e) => {
@@ -25,14 +25,14 @@ const CustomCursor = () => {
       left: mousePos.x,
       x: "-50%",
       y: "-60%",
+      scale: 0,
     },
     projectCard: {
       top: mousePos.y,
       left: mousePos.x,
       x: "-50%",
       y: "-60%",
-      width: "100px",
-      height: "100px",
+      scale: 1,
     },
   };
 
@@ -40,9 +40,9 @@ const CustomCursor = () => {
     <motion.div
       className="fixed w-28 h-28 z-10 bg-[#1864ab] rounded-full pointer-events-none grid place-items-center"
       variants={variants}
-      animate={cursorVariant}
+      animate={cursorSettings.variant}
     >
-      <p className="text-white">{cursorTitle}</p>
+      <p className="text-white">{cursorSettings.title}</p>
     </motion.div>
   );
 };
