@@ -20,10 +20,6 @@ module.exports = {
       "muted-main": "#fff",
       "muted-secondary": "#fff",
     },
-
-    fontFamily: {
-      poppins: ["Poppins"],
-    },
   },
   plugins: [require("tailwind-theme-switcher")],
 };
