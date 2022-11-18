@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
+import { Hero } from "./sections";
 
 function App() {
-  return (
-    <div>
-      <h1 className="text-text-main font-bold text-6xl">Ali Calimli</h1>
-      <h1 className="text-muted-main  text-2xl">Frontend Developer</h1>
-    </div>
-  );
+  return <Hero />;
 }
 
 export default App;
