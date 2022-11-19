@@ -55,6 +55,9 @@ const Contact = () => {
               className="w-full resize-none border-b bg-black/0 py-2 pr-2 text-xl border-muted-secondary text-text-main focus:outline-none"
             />
           </label>
+          <button className="mt-8 ml-auto rounded-full bg-[#1864ab] p-4 px-8 text-xl border-muted-secondary text-text-main">
+            Send Message
+          </button>
         </form>
       </div>
       <div className="flex flex-col gap-4">
