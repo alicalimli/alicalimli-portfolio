@@ -4,6 +4,8 @@ module.exports = {
   theme: {
     themes: {
       dark: {
+        white: "#fff",
+        black: "#000",
         "text-main": "#fff",
         "bg-main": "#212529",
         "bg-secondary": "#2A3036",
@@ -12,8 +14,8 @@ module.exports = {
       },
     },
     colors: {
-      white: "#fff",
-      black: "#000",
+      white: "#000",
+      black: "#fff",
       "text-main": "#111",
       "bg-main": "#fff",
       "bg-secondary": "#333",
