@@ -36,6 +36,19 @@ const Contact = () => {
           </label>
         </form>
       </div>
+      <div className="flex flex-col gap-4">
+        <img src={profile} className="h-32 w-32 rounded-full" />
+        <div>
+          <h3 className="text-3xl text-text-main">Email</h3>
+          <p className="text-muted-main">alicalimli76@gmail.com</p>
+        </div>
+        <div>
+          <h3 className="text-3xl text-text-main">Socials</h3>
+          <p className="text-muted-main">LinkedIn</p>
+          <p className="text-muted-main">Twitter</p>
+          <p className="text-muted-main">Github</p>
+        </div>
+      </div>
     </section>
   );
 };
