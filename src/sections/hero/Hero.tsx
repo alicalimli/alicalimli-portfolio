@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { acmessenger, moviematrix } from "../../assets";
+import { Spantext } from "../../components";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 
 const navLinksArr = ["Projects", "About", "Contact"];
@@ -35,6 +36,8 @@ const projectOverlayVariant = {
   hover: { opacity: 0, transition },
 };
 
+const nameArr = "Ali Calimli".split("");
+
 const Hero = () => {
   const { projectCursor, defaultCursor } = useCursorContext();
 
@@ -43,6 +46,8 @@ const Hero = () => {
       {navLink}
     </li>
   ));
+
+  const name = nameArr.map((letter: string) => <Spantext letter={letter} />);
 
   const projectMouseEnter = () => projectCursor();
 
@@ -84,7 +89,7 @@ const Hero = () => {
     <section className="flex flex-col gap-8 p-8 lg:py-14 lg:px-24">
       <nav className="flex gap-4">
         <div className="flex flex-col gap-2">
-          <h1 className="text-6xl font-bold text-text-main">Ali Calimli</h1>
+          <div>{name}</div>
           <h1 className="max-w-xs  text-xl text-muted-main">
             Web Developer that focuses on front-end development
           </h1>
