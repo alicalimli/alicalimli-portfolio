@@ -33,6 +33,10 @@ const CustomCursor = () => {
       x: "-50%",
       y: "-60%",
       scale: 1,
+      transition: {
+        type: "spring",
+        mass: 0.3,
+      },
     },
   };
 
