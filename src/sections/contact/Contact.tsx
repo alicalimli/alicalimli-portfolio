@@ -18,20 +18,22 @@ const Contact = () => {
         </header>
         <form className="flex w-full flex-col gap-4">
           <label htmlFor="subject" className="text-text-main">
-            Subject
+            <span className="text-xl text-muted-main">Subject</span>
             <input
               type="text"
               id="subject"
-              className="w-full border-b bg-black/0 py-2 pr-2 text-2xl border-muted-main text-text-main focus:outline-none"
+              required
+              className="w-full border-b bg-black/0 py-2 pr-2 text-2xl border-muted-secondary text-text-main invalid:border-['red'] focus:outline-none"
             />
           </label>
           <label htmlFor="message" className="text-text-main">
-            Message
+            <span className="text-xl text-muted-main">Message</span>
             <textarea
               id="message"
+              required
               rows={5}
               cols={33}
-              className="w-full resize-none border-b bg-black/0 py-2 pr-2 text-xl border-muted-main text-text-main focus:outline-none"
+              className="w-full resize-none border-b bg-black/0 py-2 pr-2 text-xl border-muted-secondary text-text-main focus:outline-none"
             />
           </label>
         </form>
