@@ -16,10 +16,13 @@ module.exports = {
       black: "#000",
       "text-main": "#111",
       "bg-main": "#fff",
-      "bg-secondary": "#fff",
+      "bg-secondary": "#333",
       "muted-main": "#fff",
       "muted-secondary": "#fff",
     },
   },
-  plugins: [require("tailwind-theme-switcher")],
+  plugins: [
+    require("tailwind-theme-switcher"),
+    require("tailwind-scrollbar")({ nocompatible: true }),
+  ],
 };
