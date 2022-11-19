@@ -16,6 +16,25 @@ const Contact = () => {
             </h1>
           </div>
         </header>
+        <form className="flex w-full flex-col gap-4">
+          <label htmlFor="subject" className="text-text-main">
+            Subject
+            <input
+              type="text"
+              id="subject"
+              className="w-full border-b bg-black/0 py-2 pr-2 text-2xl border-muted-main text-text-main focus:outline-none"
+            />
+          </label>
+          <label htmlFor="message" className="text-text-main">
+            Message
+            <textarea
+              id="message"
+              rows={5}
+              cols={33}
+              className="w-full resize-none border-b bg-black/0 py-2 pr-2 text-xl border-muted-main text-text-main focus:outline-none"
+            />
+          </label>
+        </form>
       </div>
     </section>
   );
