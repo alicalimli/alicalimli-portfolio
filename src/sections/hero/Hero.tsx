@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import React from "react";
 import { acmessenger, moviematrix } from "../../assets";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 
@@ -20,32 +19,34 @@ const featuredProjectsArr = [
   },
 ];
 
+const transition = { duration: 0.3 };
+
+const projectCardVariant = {
+  hover: {},
+};
+
+const projectCardImgVariant = {
+  animate: { scale: 1, transition },
+  hover: { scale: 1.05, transition },
+};
+
+const projectOverlayVariant = {
+  animate: { opacity: 0.15, transition },
+  hover: { opacity: 0, transition },
+};
+
 const Hero = () => {
   const { projectCursor, defaultCursor } = useCursorContext();
 
-  const navLinks = navLinksArr.map((navLink) => (
-    <li className="text-lg text-text-main">{navLink}</li>
+  const navLinks = navLinksArr.map((navLink, i) => (
+    <li key={navLink + i} className="text-lg text-text-main">
+      {navLink}
+    </li>
   ));
 
   const projectMouseEnter = () => projectCursor();
 
   const projectMouseLeave = () => defaultCursor();
-
-  const projectCardVariant = {
-    hover: {},
-  };
-
-  const projectCardImgVariant = {
-    initial: { scale: 1, transition: { duration: 0.3 } },
-    animate: { scale: 1, transition: { duration: 0.3 } },
-    hover: { scale: 1.05, transition: { duration: 0.3 } },
-  };
-
-  const projectOverlayVariant = {
-    initial: { opacity: 0.15, transition: { duration: 0.3 } },
-    animate: { opacity: 0.15, transition: { duration: 0.3 } },
-    hover: { opacity: 0, transition: { duration: 0.3 } },
-  };
 
   const featuredProjects = featuredProjectsArr.map((proj) => (
     <motion.li
