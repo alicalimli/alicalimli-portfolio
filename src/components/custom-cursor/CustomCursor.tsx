@@ -38,7 +38,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed w-28 h-28 z-10 bg-[#1864ab] rounded-full pointer-events-none grid place-items-center"
+      className="pointer-events-none fixed z-10 grid h-28 w-28 place-items-center rounded-full bg-[#1864ab]"
       variants={variants}
       animate={cursorSettings.variant}
     >

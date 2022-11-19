@@ -23,7 +23,7 @@ const Hero = () => {
   const { projectCursor, defaultCursor } = useCursorContext();
 
   const navLinks = navLinksArr.map((navLink) => (
-    <li className="text-text-main text-lg">{navLink}</li>
+    <li className="text-lg text-text-main">{navLink}</li>
   ));
 
   const projectMouseEnter = () => projectCursor();
@@ -36,15 +36,15 @@ const Hero = () => {
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
     >
-      <a className="flex flex-col w-full gap-4 ">
-        <div className="w-full h-96 inline-block bg-bg-secondary p-12">
-          <img src={proj.img} className="object-contain h-full w-full" />
+      <a className="flex w-full flex-col gap-4 ">
+        <div className="inline-block h-96 w-full p-12 bg-bg-secondary">
+          <img src={proj.img} className="h-full w-full object-contain" />
         </div>
         <div className="flex flex-col">
           <span className="text-sm  text-muted-secondary">{proj.role}</span>
-          <h2 className="text-text-main text-4xl font-bold">{proj.name}</h2>
+          <h2 className="text-4xl font-bold text-text-main">{proj.name}</h2>
 
-          <p className="text-muted-main text-lg">{proj.desc}</p>
+          <p className="text-lg text-muted-main">{proj.desc}</p>
         </div>
       </a>
     </li>
@@ -54,14 +54,14 @@ const Hero = () => {
     <section className="flex flex-col gap-8 p-8 lg:py-14 lg:px-24">
       <nav className="flex gap-4">
         <div className="flex flex-col gap-2">
-          <h1 className="text-text-main font-bold text-6xl">Ali Calimli</h1>
-          <h1 className="text-muted-main  text-xl max-w-xs">
+          <h1 className="text-6xl font-bold text-text-main">Ali Calimli</h1>
+          <h1 className="max-w-xs  text-xl text-muted-main">
             Web Developer that focuses on front-end development
           </h1>
         </div>
-        <ul className="flex gap-4 ml-auto">{navLinks}</ul>
+        <ul className="ml-auto flex gap-4">{navLinks}</ul>
       </nav>
-      <ul className="grid gap-8 grid-cols-1 md:grid-cols-2 fitcol">
+      <ul className="fitcol grid grid-cols-1 gap-8 md:grid-cols-2">
         {featuredProjects}
       </ul>
     </section>
