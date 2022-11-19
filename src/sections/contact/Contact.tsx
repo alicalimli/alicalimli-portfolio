@@ -1,7 +1,26 @@
 import React from "react";
 import { profile } from "../../assets";
 
+const socialsArr = [
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/alicalimli/" },
+  { name: "Twitter", link: "https://twitter.com/alicalimli_dev" },
+  { name: "Github", link: "https://github.com/alicalimli" },
+];
+
 const Contact = () => {
+  const socials = socialsArr.map((social) => (
+    <li key={social.name}>
+      <a
+        href={social.link}
+        rel="noopener noreferrer"
+        target="_blank"
+        className="text-muted-main"
+      >
+        {social.name}
+      </a>
+    </li>
+  ));
+
   return (
     <section className="flex gap-16 p-8 lg:py-14 lg:px-24">
       <div className="flex flex-col gap-8">
@@ -42,13 +61,18 @@ const Contact = () => {
         <img src={profile} className="h-32 w-32 rounded-full" />
         <div>
           <h3 className="text-3xl text-text-main">Email</h3>
-          <p className="text-muted-main">alicalimli76@gmail.com</p>
+          <a
+            href="mailto:alicalimli76@gmail.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-muted-main"
+          >
+            alicalimli76@gmail.com
+          </a>
         </div>
         <div>
           <h3 className="text-3xl text-text-main">Socials</h3>
-          <p className="text-muted-main">LinkedIn</p>
-          <p className="text-muted-main">Twitter</p>
-          <p className="text-muted-main">Github</p>
+          <ul className="flex flex-col">{socials}</ul>
         </div>
       </div>
     </section>
