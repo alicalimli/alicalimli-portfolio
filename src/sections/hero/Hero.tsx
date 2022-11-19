@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { acmessenger, moviematrix } from "../../assets";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
@@ -30,15 +31,43 @@ const Hero = () => {
 
   const projectMouseLeave = () => defaultCursor();
 
+  const projectCardVariant = {
+    hover: {},
+  };
+
+  const projectCardImgVariant = {
+    initial: { scale: 1, transition: { duration: 0.3 } },
+    animate: { scale: 1, transition: { duration: 0.3 } },
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+  };
+
+  const projectOverlayVariant = {
+    initial: { opacity: 0.15, transition: { duration: 0.3 } },
+    animate: { opacity: 0.15, transition: { duration: 0.3 } },
+    hover: { opacity: 0, transition: { duration: 0.3 } },
+  };
+
   const featuredProjects = featuredProjectsArr.map((proj) => (
-    <li
+    <motion.li
       key={proj.name}
+      variants={projectCardVariant}
+      whileHover="hover"
+      initial="initial"
+      animate="animate"
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
     >
       <a className="flex w-full flex-col gap-4 ">
-        <div className="inline-block h-96 w-full p-12 bg-bg-secondary">
-          <img src={proj.img} className="h-full w-full object-contain" />
+        <div className="relative inline-block w-full px-6 py-12 bg-bg-secondary lg:py-24 lg:px-12">
+          <motion.img
+            variants={projectCardImgVariant}
+            src={proj.img}
+            className="h-full w-full object-contain"
+          />
+          <motion.div
+            variants={projectOverlayVariant}
+            className="absolute inset-0 z-10 h-full w-full bg-bg-main"
+          />
         </div>
         <div className="flex flex-col">
           <span className="text-sm  text-muted-secondary">{proj.role}</span>
@@ -47,7 +76,7 @@ const Hero = () => {
           <p className="text-lg text-muted-main">{proj.desc}</p>
         </div>
       </a>
-    </li>
+    </motion.li>
   ));
 
   return (
@@ -61,7 +90,7 @@ const Hero = () => {
         </div>
         <ul className="ml-auto flex gap-4">{navLinks}</ul>
       </nav>
-      <ul className="fitcol grid grid-cols-1 gap-8 md:grid-cols-2">
+      <ul className="fitcol grid grid-cols-1 gap-16 md:grid-cols-2">
         {featuredProjects}
       </ul>
     </section>
