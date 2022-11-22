@@ -1,4 +1,4 @@
-import { Spantext } from "../../components";
+import { SpringyText } from "../../components";
 
 const navLinksArr = ["Projects", "About", "Contact"];
 const nameArr = "Ali Calimli".split("");
@@ -10,7 +10,7 @@ const Navbar = () => {
     </li>
   ));
 
-  const name = nameArr.map((letter: string) => <Spantext letter={letter} />);
+  const name = nameArr.map((letter: string) => <SpringyText letter={letter} />);
   return (
     <nav className="flex gap-4">
       <div className="flex flex-col gap-2">

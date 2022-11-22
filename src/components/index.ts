@@ -1,4 +1,4 @@
 import CustomCursor from "./custom-cursor/CustomCursor";
-import Spantext from "./span-text/Spantext";
+import SpringyText from "./SpringyText/SpringyText";
 
-export { CustomCursor, Spantext };
+export { CustomCursor, SpringyText };
