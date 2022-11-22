@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Chip } from "../../components";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 
 const transition = { duration: 0.3 };
@@ -23,6 +24,7 @@ interface ProjectCardProps {
     role: string;
     desc: string;
     img: string;
+    tools: string[];
   };
 }
 
@@ -41,6 +43,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
       animate="animate"
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
+      className="flex flex-col gap-2"
     >
       <a className="flex w-full flex-col gap-4 ">
         <div className="relative inline-block w-full px-6 py-12 bg-bg-secondary lg:py-24 lg:px-12">
@@ -61,6 +64,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
           <p className="text-lg text-muted-main">{proj.desc}</p>
         </div>
       </a>
+      <Chip texts={proj.tools} />
     </motion.li>
   );
 };

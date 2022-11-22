@@ -8,12 +8,21 @@ const featuredProjectsArr = [
     role: "Design & Development",
     img: moviematrix,
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    tools: ["Javascript", "CSS", "HTML"],
   },
   {
     name: "ACMessenger",
     img: acmessenger,
     role: "Design & Development",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    tools: [
+      "React",
+      "Typescript",
+      "Firebase",
+      "TailwindCSS",
+      "Redux Toolkit",
+      "Framer Motion",
+    ],
   },
 ];
 
