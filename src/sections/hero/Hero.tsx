@@ -1,4 +1,5 @@
 import { acmessenger, moviematrix } from "../../assets";
+import { PrimaryButton } from "../../components";
 import Navbar from "./Navbar";
 import ProjectCard from "./ProjectCard";
 
@@ -37,6 +38,7 @@ const Hero = () => {
       <ul className="fitcol grid grid-cols-1 gap-16 md:grid-cols-2">
         {featuredProjects}
       </ul>
+      <PrimaryButton />
     </section>
   );
 };
