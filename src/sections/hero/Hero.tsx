@@ -8,14 +8,14 @@ const featuredProjectsArr = [
     name: "Moviematrix",
     role: "Design & Development",
     img: moviematrix,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
     tools: ["Javascript", "CSS", "HTML"],
   },
   {
     name: "ACMessenger",
     img: acmessenger,
     role: "Design & Development",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
     tools: [
       "React",
       "Typescript",
@@ -33,12 +33,30 @@ const Hero = () => {
   ));
 
   return (
-    <section className="flex flex-col gap-8 p-8 lg:py-14 lg:px-24">
+    <section
+      className="
+        flex 
+        flex-col 
+        gap-8 
+        p-8 
+        md:py-8 
+        md:px-16 
+        xl:py-14 
+        xl:px-24
+      "
+    >
       <Navbar />
-      <ul className="fitcol grid grid-cols-1 gap-16 md:grid-cols-2">
+      <ul
+        className="
+            grid 
+            grid-cols-1 
+            gap-16 
+            sm:grid-cols-2 
+          "
+      >
         {featuredProjects}
       </ul>
-      <PrimaryButton />
+      <PrimaryButton className="mt-8" onClick={() => console.log("")} />
     </section>
   );
 };

@@ -43,10 +43,10 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
       animate="animate"
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-4"
     >
-      <a className="flex w-full flex-col gap-4 ">
-        <div className="relative inline-block w-full px-6 py-12 bg-bg-secondary lg:py-24 lg:px-12">
+      <a className="flex w-full flex-col gap-8">
+        <div className="relative inline-block w-full px-6 py-12 bg-bg-secondary lg:py-16 lg:px-12">
           <motion.img
             variants={projectCardImgVariant}
             src={proj.img}
@@ -60,7 +60,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
         <div className="flex flex-col">
           <span className="text-sm  text-muted-secondary">{proj.role}</span>
           <h2 className="text-4xl font-bold text-text-main">{proj.name}</h2>
-
+          <hr className="my-4 border-muted-secondary" />
           <p className="text-lg text-muted-main">{proj.desc}</p>
         </div>
       </a>
