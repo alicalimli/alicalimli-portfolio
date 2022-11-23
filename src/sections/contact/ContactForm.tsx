@@ -38,6 +38,26 @@ const ContactForm = () => {
           required
           className={inputClass}
         />
+        <span className={spanLabelClass}>Name</span>
+      </label>
+      <label htmlFor="email" className="relative text-text-main">
+        <input
+          type="text"
+          id="email"
+          placeholder=" "
+          required
+          className={inputClass}
+        />
+        <span className={spanLabelClass}>Email</span>
+      </label>
+      <label htmlFor="subject" className="relative text-text-main">
+        <input
+          type="text"
+          id="subject"
+          placeholder=" "
+          required
+          className={inputClass}
+        />
         <span className={spanLabelClass}>Subject</span>
       </label>
       <label htmlFor="message" className="relative text-text-main">
