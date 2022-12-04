@@ -1,12 +1,30 @@
+import { Link } from "react-router-dom";
 import { SpringyText } from "../../components";
 
-const navLinksArr = ["Projects", "About", "Contact"];
+const navLinksArr = [
+  {
+    link: "About",
+    path: "about",
+  },
+  {
+    link: "Projects",
+    path: "projects",
+  },
+  {
+    link: "Contact",
+    path: "contact",
+  },
+];
 
 const Navbar = () => {
   const navLinks = navLinksArr.map((navLink, i) => (
-    <li key={navLink + i} className="text-lg text-text-main">
-      {navLink}
-    </li>
+    <Link
+      to={navLink.path}
+      key={navLink.link + i}
+      className="text-lg text-text-main"
+    >
+      {navLink.link}
+    </Link>
   ));
 
   return (

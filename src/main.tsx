@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import { ContextProvider } from "./setup";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Contact } from "./sections";
+import { AboutPage, ContactPage, ProjectsPage } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: <ContactPage />,
+  },
+  {
+    path: "/projects",
+    element: <ProjectsPage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
   },
 ]);
 

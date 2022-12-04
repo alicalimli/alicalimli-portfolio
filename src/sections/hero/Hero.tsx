@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { acmessenger, moviematrix } from "../../assets";
 import { PrimaryButton } from "../../components";
 import Navbar from "./Navbar";
@@ -28,6 +29,10 @@ const featuredProjectsArr = [
 ];
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const archiveBtnHandler = () => navigate("/projects");
+
   const featuredProjects = featuredProjectsArr.map((proj) => (
     <ProjectCard proj={proj} />
   ));
@@ -56,7 +61,7 @@ const Hero = () => {
       >
         {featuredProjects}
       </ul>
-      <PrimaryButton className="mt-8" onClick={() => console.log("")} />
+      <PrimaryButton className="mt-8" onClick={archiveBtnHandler} />
     </section>
   );
 };
