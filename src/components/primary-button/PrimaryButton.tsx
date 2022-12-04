@@ -1,9 +1,10 @@
 interface PrimaryButtonProps {
   className?: string;
+  name: string;
   onClick: () => void;
 }
 
-const PrimaryButton = ({ className, onClick }: PrimaryButtonProps) => {
+const PrimaryButton = ({ className, name, onClick }: PrimaryButtonProps) => {
   return (
     <button
       onClick={() => onClick()}
@@ -33,7 +34,7 @@ const PrimaryButton = ({ className, onClick }: PrimaryButtonProps) => {
           group-hover:opacity-0
         "
       >
-        Project Archive
+        {name}
       </p>
       <div
         className="
@@ -52,7 +53,7 @@ const PrimaryButton = ({ className, onClick }: PrimaryButtonProps) => {
           group-hover:opacity-100
         "
       >
-        Project Archive
+        {name}
       </div>
     </button>
   );
