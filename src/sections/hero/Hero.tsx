@@ -61,7 +61,11 @@ const Hero = () => {
       >
         {featuredProjects}
       </ul>
-      <PrimaryButton className="mt-8" onClick={archiveBtnHandler} />
+      <PrimaryButton
+        name="Projects Archive"
+        className="mt-8"
+        onClick={archiveBtnHandler}
+      />
     </section>
   );
 };
