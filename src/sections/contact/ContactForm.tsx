@@ -1,3 +1,5 @@
+import { PrimaryButton } from "../../components";
+
 const inputClass = `
       peer 
       w-full 
@@ -71,9 +73,12 @@ const ContactForm = () => {
         />
         <span className={spanLabelClass}>Message</span>
       </label>
-      <button className="mt-8 ml-auto rounded-full bg-accent-primary p-4 px-8 text-xl border-muted-secondary text-text-main hover:bg-accent-tinted">
-        Send Message
-      </button>
+      <PrimaryButton
+        name="Send Message"
+        type="solid"
+        className="m-0 mt-8 ml-auto"
+        onClick={() => console.log("")}
+      />
     </form>
   );
 };
