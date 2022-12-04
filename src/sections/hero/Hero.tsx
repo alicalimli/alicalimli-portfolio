@@ -38,34 +38,31 @@ const Hero = () => {
   ));
 
   return (
-    <section
-      className="
-        flex 
-        flex-col 
-        gap-8 
-        p-8 
-        md:py-8 
-        md:px-16 
-        xl:py-14 
-        xl:px-24
-      "
-    >
-      <Navbar />
-      <ul
+    <section className="section">
+      <main
         className="
+          flex 
+          flex-col 
+          gap-8 
+        "
+      >
+        <Navbar />
+        <ul
+          className="
             grid 
             grid-cols-1 
             gap-16 
             sm:grid-cols-2 
           "
-      >
-        {featuredProjects}
-      </ul>
-      <PrimaryButton
-        name="Projects Archive"
-        className="mt-8"
-        onClick={archiveBtnHandler}
-      />
+        >
+          {featuredProjects}
+        </ul>
+        <PrimaryButton
+          name="Projects Archive"
+          className="mt-8"
+          onClick={archiveBtnHandler}
+        />
+      </main>
     </section>
   );
 };

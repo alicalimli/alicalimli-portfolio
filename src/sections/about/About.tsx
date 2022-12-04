@@ -32,9 +32,10 @@ const About = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="flex items-center gap-4 p-8 lg:px-16 lg:py-7 xl:px-24 xl:py-14">
-      <header
-        className="
+    <section className="section">
+      <main className="flex items-center gap-4">
+        <header
+          className="
           flex
           w-full 
           max-w-xl 
@@ -42,37 +43,38 @@ const About = () => {
           items-start
           gap-2
         "
-      >
-        <h1 className="font-bold text-text-main fluid-4xl">
-          A little about me
-        </h1>
-        <p className="text-muted-main fluid-lg">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero illo
-          necessitatibus pariatur! Beatae earum recusandae, id magnam hic error
-          dicta quaerat officiis unde similique ad rem? Doloribus dignissimos
-          natus quibusdam!
-        </p>
+        >
+          <h1 className="font-bold text-text-main fluid-4xl">
+            A little about me
+          </h1>
+          <p className="text-muted-main fluid-lg">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero illo
+            necessitatibus pariatur! Beatae earum recusandae, id magnam hic
+            error dicta quaerat officiis unde similique ad rem? Doloribus
+            dignissimos natus quibusdam!
+          </p>
 
-        <PrimaryButton
-          name="More About Me"
-          className="mx-0 mt-8"
-          onClick={() => navigate("/about")}
-        />
-      </header>
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        className="
+          <PrimaryButton
+            name="More About Me"
+            className="mx-0 mt-8"
+            onClick={() => navigate("/about")}
+          />
+        </header>
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          className="
           hidden 
           w-3/4
           max-w-full
           md:block  
           "
-        viewport={{ once: true }}
-        transition={{ type: "spring", mass: 0.2 }}
-      >
-        <Lottie options={defaultOptions} />
-      </motion.div>
+          viewport={{ once: true }}
+          transition={{ type: "spring", mass: 0.2 }}
+        >
+          <Lottie options={defaultOptions} />
+        </motion.div>
+      </main>
     </section>
   );
 };
