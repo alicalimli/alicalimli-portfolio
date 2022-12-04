@@ -59,7 +59,7 @@ const Hero = () => {
         </ul>
         <PrimaryButton
           name="Projects Archive"
-          className="mt-8"
+          className="mx-auto mt-8"
           onClick={archiveBtnHandler}
         />
       </main>

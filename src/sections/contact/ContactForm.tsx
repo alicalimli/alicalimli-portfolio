@@ -76,7 +76,7 @@ const ContactForm = () => {
       <PrimaryButton
         name="Send Message"
         type="solid"
-        className="m-0 mt-8 ml-auto"
+        className="mt-8 ml-auto"
         onClick={() => console.log("")}
       />
     </form>

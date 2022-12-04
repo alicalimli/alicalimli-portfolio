@@ -29,7 +29,6 @@ const PrimaryButton = ({
           bg-transparent
           group
           relative
-          m-auto
           max-w-lg
           cursor-pointer
           overflow-hidden rounded-full
