@@ -56,7 +56,7 @@ const About = () => {
 
           <PrimaryButton
             name="More About Me"
-            className="mx-0 mt-8"
+            className="mt-8"
             onClick={() => navigate("/about")}
           />
         </header>
