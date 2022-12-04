@@ -1,14 +1,30 @@
 interface PrimaryButtonProps {
-  className?: string;
   name: string;
   onClick: () => void;
+  className?: string;
+  type?: "solid" | "outline";
 }
 
-const PrimaryButton = ({ className, name, onClick }: PrimaryButtonProps) => {
+const PrimaryButton = ({
+  className,
+  type = "outline",
+  name,
+  onClick,
+}: PrimaryButtonProps) => {
+  const getBtnTypeClass = () => {
+    if (type === "outline") {
+      return "border-muted-secondary";
+    }
+    if (type === "solid") {
+      return "bg-accent-primary border-accent-primary";
+    }
+  };
+
   return (
     <button
       onClick={() => onClick()}
       className={`
+          ${getBtnTypeClass()}
           ${className}
           bg-transparent
           group
@@ -22,8 +38,7 @@ const PrimaryButton = ({ className, name, onClick }: PrimaryButtonProps) => {
           px-12
           text-['#fff']
           duration-300
-          border-muted-secondary
-          hover:border-accent-primary
+          hover:border-accent-tinted
       `}
     >
       <p
@@ -45,7 +60,7 @@ const PrimaryButton = ({ className, name, onClick }: PrimaryButtonProps) => {
           h-full
           w-full
           place-items-center
-          bg-accent-primary
+          bg-accent-tinted
           text-[#fff]
           opacity-0
           duration-300
