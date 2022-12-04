@@ -1,3 +1,7 @@
+import { useEffect, useRef } from "react";
+import { codingBoy } from "../../assets";
+import { motion } from "framer-motion";
+import Lottie from "react-lottie";
 import { Chip } from "../../components";
 
 const myTools = [
@@ -15,9 +19,18 @@ const myTools = [
 ];
 
 const About = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: codingBoy,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <section className="flex gap-16 p-8 lg:py-14 lg:px-24">
-      <div className="flex max-w-xl flex-col gap-8">
+      <div className="flex w-full max-w-xl flex-col gap-8 lg:w-1/2">
         <header className="flex gap-4">
           <div className="flex flex-col gap-2">
             <h1 className="text-6xl font-bold text-text-main">
@@ -38,6 +51,15 @@ const About = () => {
           <Chip texts={myTools} />
         </main>
       </div>
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        className="hidden w-1/2 lg:block   "
+        viewport={{ once: true }}
+        transition={{ type: "spring", mass: 0.2 }}
+      >
+        <Lottie options={defaultOptions} />
+      </motion.div>
     </section>
   );
 };
