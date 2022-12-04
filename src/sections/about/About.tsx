@@ -2,7 +2,8 @@ import { useEffect, useRef } from "react";
 import { codingBoy } from "../../assets";
 import { motion } from "framer-motion";
 import Lottie from "react-lottie";
-import { Chip } from "../../components";
+import { Chip, PrimaryButton } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 const myTools = [
   "HTML",
@@ -18,24 +19,27 @@ const myTools = [
   "Bootstrap",
 ];
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: codingBoy,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
 const About = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: codingBoy,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const navigate = useNavigate();
 
   return (
-    <section className=" flex items-center gap-4 p-8 lg:px-16 lg:py-7 xl:px-24 xl:py-14">
+    <section className="flex items-center gap-4 p-8 lg:px-16 lg:py-7 xl:px-24 xl:py-14">
       <header
         className="
-          flex 
+          flex
           w-full 
           max-w-xl 
           flex-col 
+          items-start
           gap-2
         "
       >
@@ -48,6 +52,12 @@ const About = () => {
           dicta quaerat officiis unde similique ad rem? Doloribus dignissimos
           natus quibusdam!
         </p>
+
+        <PrimaryButton
+          name="More About Me"
+          className="mx-0 mt-8"
+          onClick={() => navigate("/about")}
+        />
       </header>
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
