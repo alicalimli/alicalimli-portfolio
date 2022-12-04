@@ -29,5 +29,6 @@ module.exports = {
   plugins: [
     require("tailwind-theme-switcher"),
     require("tailwind-scrollbar")({ nocompatible: true }),
+    require("tailwind-fluid-typography"),
   ],
 };
