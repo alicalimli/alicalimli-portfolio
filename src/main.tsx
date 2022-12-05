@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import "./main.css";
 import { ContextProvider } from "./setup";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AboutPage, ContactPage, ProjectsPage } from "./pages";
