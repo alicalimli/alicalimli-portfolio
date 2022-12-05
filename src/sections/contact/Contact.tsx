@@ -2,6 +2,7 @@ import React from "react";
 import { profile } from "../../assets";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
+import { SpringyText } from "../../components";
 
 const socialsArr = [
   { name: "LinkedIn", link: "https://www.linkedin.com/in/alicalimli/" },
@@ -28,9 +29,7 @@ const Contact = () => {
       <main className="flex gap-16">
         <div className="flex flex-col gap-12">
           <header className="flex flex-col gap-2">
-            <h1 className="text-6xl font-bold text-text-main fluid-4xl">
-              Lets Collaborate!
-            </h1>
+            <SpringyText text="Lets Collaborate!" />
             <h1 className="max-w-xl text-muted-main fluid-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Cupiditate, consectetur!

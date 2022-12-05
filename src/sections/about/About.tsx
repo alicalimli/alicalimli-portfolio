@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { codingBoy } from "../../assets";
 import { motion } from "framer-motion";
 import Lottie from "react-lottie";
-import { Chip, PrimaryButton } from "../../components";
+import { Chip, PrimaryButton, SpringyText } from "../../components";
 import { useNavigate } from "react-router-dom";
 
 const myTools = [
@@ -44,9 +44,7 @@ const About = () => {
           gap-2
         "
         >
-          <h1 className="font-bold text-text-main fluid-4xl">
-            A little about me
-          </h1>
+          <SpringyText text="A Little About Me" />
           <p className="text-muted-main fluid-lg">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero illo
             necessitatibus pariatur! Beatae earum recusandae, id magnam hic

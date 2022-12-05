@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="flex gap-4">
       <div className="flex flex-col gap-2">
         <SpringyText text="Ali Calimli" />
-        <h1 className="max-w-xs  text-xl text-muted-main">
+        <h1 className="max-w-xs  text-muted-main fluid-lg">
           Web Developer that focuses on front-end development
         </h1>
       </div>
