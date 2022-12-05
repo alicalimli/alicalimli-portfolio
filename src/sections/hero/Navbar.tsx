@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { SpringyText } from "../../components";
+import TwLink from "../../components/tw-link/TwLink";
 
 const navLinksArr = [
   {
@@ -18,13 +18,7 @@ const navLinksArr = [
 
 const Navbar = () => {
   const navLinks = navLinksArr.map((navLink, i) => (
-    <Link
-      to={navLink.path}
-      key={navLink.link + i}
-      className="text-lg text-text-main"
-    >
-      {navLink.link}
-    </Link>
+    <TwLink key={navLink.link + i} name={navLink.link} path={navLink.path} />
   ));
 
   return (
