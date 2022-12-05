@@ -3,6 +3,7 @@ import { profile } from "../../assets";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 import { SpringyText } from "../../components";
+import AnchorTag from "../../components/anchor-tag/AnchorTag";
 
 const socialsArr = [
   { name: "LinkedIn", link: "https://www.linkedin.com/in/alicalimli/" },
@@ -13,14 +14,7 @@ const socialsArr = [
 const Contact = () => {
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
-      <a
-        href={social.link}
-        rel="noopener noreferrer"
-        target="_blank"
-        className="text-muted-main"
-      >
-        {social.name}
-      </a>
+      <AnchorTag name={social.name} href={social.link} />
     </li>
   ));
 
@@ -41,14 +35,10 @@ const Contact = () => {
           <img src={profile} className="h-28 w-28 rounded-full" />
           <div>
             <h3 className="text-3xl text-text-main">Email</h3>
-            <a
+            <AnchorTag
+              name="alicalimli76@gmail.com"
               href="mailto:alicalimli76@gmail.com"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="text-muted-main"
-            >
-              alicalimli76@gmail.com
-            </a>
+            />
           </div>
           <div>
             <h3 className="text-3xl text-text-main">Socials</h3>
