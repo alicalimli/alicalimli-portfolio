@@ -6,6 +6,7 @@ import "./main.css";
 import { ContextProvider } from "./setup";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AboutPage, ContactPage, ProjectsPage } from "./pages";
+import { Footer } from "./sections";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ContextProvider>
       <RouterProvider router={router} />
+      <Footer />
     </ContextProvider>
   </React.StrictMode>
 );

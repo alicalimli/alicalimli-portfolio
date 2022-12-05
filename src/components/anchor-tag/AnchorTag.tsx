@@ -1,15 +1,17 @@
 interface AnchorTagProps {
   name: string;
   href: string;
+  className?: string;
 }
 
-const AnchorTag = ({ name, href }: AnchorTagProps) => {
+const AnchorTag = ({ name, href, className = "" }: AnchorTagProps) => {
   return (
     <a
       href={href}
       rel="noopener noreferrer"
       target="_blank"
-      className="
+      className={`
+        ${className}
         group 
         relative
         inline-block
@@ -19,7 +21,7 @@ const AnchorTag = ({ name, href }: AnchorTagProps) => {
         duration-300
         text-muted-main
         hover:-translate-y-2
-      "
+      `}
     >
       {name}
       <div
