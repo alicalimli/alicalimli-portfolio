@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { CustomCursor } from "./components";
-import { About, Contact, Hero } from "./sections";
+import { About, Contact, Projects } from "./sections";
 
 function App() {
   return (
     <main>
       <CustomCursor />
-      <Hero />
+      <Projects />
       <About />
       <Contact />
     </main>
