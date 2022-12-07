@@ -16,7 +16,7 @@ const navLinksArr = [
   },
 ];
 
-const Navbar = () => {
+const Header = () => {
   const navLinks = navLinksArr.map((navLink, i) => (
     <TwLink key={navLink.link + i} name={navLink.link} path={navLink.path} />
   ));
@@ -34,4 +34,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

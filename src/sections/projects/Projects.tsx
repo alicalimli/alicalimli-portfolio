@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { acmessenger, moviematrix } from "../../assets";
 import { PrimaryButton } from "../../components";
-import Navbar from "./Navbar";
+import Header from "./Header";
 import ProjectCard from "./ProjectCard";
 
 const featuredProjectsArr = [
@@ -28,7 +28,7 @@ const featuredProjectsArr = [
   },
 ];
 
-const Hero = () => {
+const Projects = () => {
   const navigate = useNavigate();
 
   const archiveBtnHandler = () => navigate("/projects");
@@ -46,7 +46,7 @@ const Hero = () => {
           gap-8 
         "
       >
-        <Navbar />
+        <Header />
         <ul
           className="
             grid 
@@ -67,4 +67,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Projects;
