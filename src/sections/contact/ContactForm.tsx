@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PrimaryButton } from "../../components";
 
 const inputClass = `
@@ -30,8 +32,50 @@ const spanLabelClass = `
       `;
 
 const ContactForm = () => {
+  const [isSending, setIsSending] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const navigate = useNavigate();
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+
+    setErrorMsg("");
+    setIsSending(true);
+
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const subject = e.target[2].value;
+    const message = e.target[3].value;
+
+    try {
+      const sendMessage = await fetch(
+        "https://formsubmit.co/ajax/779a1f0fbd51622e61c543e0ced860ab",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+          }),
+        }
+      );
+
+      setIsSending(false);
+      navigate("/thankyou");
+    } catch (e) {
+      setIsSending(false);
+      setErrorMsg(e.message);
+    }
+  };
+
   return (
-    <form className="flex w-full flex-col gap-12">
+    <form onSubmit={submitForm} className="flex w-full flex-col gap-12">
       <label htmlFor="name" className="relative text-text-main">
         <input
           type="text"
@@ -74,7 +118,7 @@ const ContactForm = () => {
         <span className={spanLabelClass}>Message</span>
       </label>
       <PrimaryButton
-        name="Send Message"
+        name={isSending ? "Loading..." : "Send Message"}
         type="solid"
         className="mt-8 ml-auto"
         onClick={() => console.log("")}
