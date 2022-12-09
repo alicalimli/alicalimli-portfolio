@@ -1,6 +1,6 @@
 import AboutPage from "./about-page/AboutPage";
 import ContactPage from "./contact-page/ContactPage";
 import ProjectsPage from "./projects-page/ProjectsPage";
-import ThankYou from "./thank-you-page/ThankYou";
+import Success from "./success-page/Success";
 
-export { ThankYou, AboutPage, ContactPage, ProjectsPage };
+export { Success, AboutPage, ContactPage, ProjectsPage };
