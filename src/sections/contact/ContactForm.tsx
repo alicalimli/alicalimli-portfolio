@@ -32,7 +32,7 @@ const spanLabelClass = `
       `;
 
 const ContactForm = () => {
-  const [isSending, setIsSending] = useState(true);
+  const [isSending, setIsSending] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
