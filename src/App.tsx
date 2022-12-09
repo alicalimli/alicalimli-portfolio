@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { CustomCursor } from "./components";
-import { About, Contact, Projects } from "./sections";
+import { About, Contact, Footer, Projects } from "./sections";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Projects />
       <About />
       <Contact />
+      <Footer />
     </main>
   );
 }
