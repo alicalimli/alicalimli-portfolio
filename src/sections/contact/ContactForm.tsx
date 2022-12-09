@@ -32,7 +32,7 @@ const spanLabelClass = `
       `;
 
 const ContactForm = () => {
-  const [isSending, setIsSending] = useState(false);
+  const [isSending, setIsSending] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
@@ -65,7 +65,6 @@ const ContactForm = () => {
           }),
         }
       );
-
       setIsSending(false);
       navigate("/thankyou");
     } catch (e) {
@@ -118,8 +117,8 @@ const ContactForm = () => {
         <span className={spanLabelClass}>Message</span>
       </label>
       <PrimaryButton
-        name={isSending ? "Loading..." : "Send Message"}
-        type="solid"
+        name={"Send Message"}
+        type={isSending ? "loading" : "solid"}
         className="mt-8 ml-auto"
         onClick={() => console.log("")}
       />
