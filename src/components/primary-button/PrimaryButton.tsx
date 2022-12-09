@@ -36,14 +36,14 @@ const PrimaryButton = ({
           p-6
           px-12
           text-['#fff']
-          duration-300
+          duration-400
           hover:border-accent-tinted
       `}
     >
       <p
         className="
           text-[#fff]
-          duration-300
+          duration-400
           group-hover:-translate-y-full
           group-hover:opacity-0
         "
@@ -62,7 +62,7 @@ const PrimaryButton = ({
           bg-accent-tinted
           text-[#fff]
           opacity-0
-          duration-300
+          duration-400
           group-hover:top-0
           group-hover:opacity-100
         "

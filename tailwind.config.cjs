@@ -2,6 +2,13 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx,html}", "./*.html"],
   darkMode: ["class", '[data-mode="theme-dark"]'],
   theme: {
+    extend: {
+      transitionDuration: {
+        0: "0ms",
+        400: "400ms",
+        450: "450ms",
+      },
+    },
     themes: {
       dark: {
         white: "#fff",
