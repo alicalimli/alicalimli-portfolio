@@ -16,7 +16,7 @@ const SpringyText = ({ text }: SpringyTextProps) => {
   };
 
   const springyText = words.map((word: any, i: number) => (
-    <div>{getSpringyLetters(word)}</div>
+    <div key={word}>{getSpringyLetters(word)}</div>
   ));
 
   return <h1 className="flex flex-wrap gap-x-3">{springyText}</h1>;
