@@ -36,12 +36,14 @@ const PrimaryButton = ({
           cursor-pointer overflow-hidden
           rounded-full
           border
-          p-6
-          px-12
+          p-5
+          px-10
           text-['#fff']
-          duration-400 
+          duration-400
           ease-in-out
-          hover:border-accent-tinted
+          hover:border-accent-tinted 
+          sm:p-6
+          sm:px-12
       `}
     >
       <p
