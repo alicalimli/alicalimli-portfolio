@@ -13,11 +13,13 @@ import {
   Success,
 } from "./pages";
 import Layout from "./setup/router/Layout";
+import { HamburgerMenu } from "./components";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ContextProvider>
       <BrowserRouter>
+        <HamburgerMenu />
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="success" element={<Success />} />
