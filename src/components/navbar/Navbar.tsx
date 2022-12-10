@@ -1,25 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import TwLink from "../tw-link/TwLink";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+  const isCurrentPath = (path: string) => path === pathname;
+
   const navLinksArr = [
     {
       link: "About",
-      path: "about",
+      path: "/about",
     },
     {
       link: "Projects",
-      path: "projects",
+      path: "/projects",
     },
     {
       link: "Contact",
-      path: "contact",
+      path: "/contact",
     },
   ];
 
   const navLinks = navLinksArr.map((navLink, i) => (
-    <TwLink key={navLink.link + i} name={navLink.link} path={navLink.path} />
+    <TwLink
+      active={isCurrentPath(navLink.path)}
+      key={navLink.link + i}
+      name={navLink.link}
+      path={navLink.path}
+    />
   ));
 
   return (

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navMenuVariant = {
   initial: {
@@ -29,6 +29,9 @@ const navLinkVariant = {
       duration: 0.45,
       ease: "easeInOut",
     },
+  },
+  hover: {
+    x: "10%",
   },
   animate: {
     x: 0,
@@ -66,6 +69,9 @@ interface NavigationMenuProps {
 
 const NavigationMenu = ({ showMenu, setShowMenu }: NavigationMenuProps) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const isCurrentPath = (path: string) => path === pathname;
 
   const navLinkHandler = (path: string) => {
     setShowMenu(false);
@@ -77,12 +83,37 @@ const NavigationMenu = ({ showMenu, setShowMenu }: NavigationMenuProps) => {
       variants={navLinkVariant}
       key={navLink.link + i}
       className={`
+          group
+          relative
           text-6xl
           text-text-main
         `}
       onClick={() => navLinkHandler(navLink.path)}
     >
-      {navLink.link}
+      <span
+        className={`
+          ${isCurrentPath(navLink.path) ? "translate-x-5" : ""}
+          inline-block 
+          duration-450 
+          group-hover:translate-x-5
+        `}
+      >
+        {navLink.link}
+      </span>
+      <div
+        className={`
+          ${isCurrentPath(navLink.path) ? "opacity-100" : "opacity-0"}
+          absolute
+          -left-6
+          top-1/2
+          -translate-y-1/2
+          rounded-full
+          p-1
+          duration-450 
+          bg-white 
+          group-hover:opacity-100
+        `}
+      />
     </motion.button>
   ));
   return (
