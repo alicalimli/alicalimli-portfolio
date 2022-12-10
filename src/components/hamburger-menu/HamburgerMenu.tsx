@@ -8,23 +8,15 @@ const navBtnVariant = {
   animate: { scale: 1 },
 };
 
-const HamburgerMenu = () => {
+interface HamburgerMenuProps {
+  showNavBtn: boolean;
+  setShowNavBtn: (state: boolean) => void;
+}
+
+const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showNavBtn, setShowNavBtn] = useState(false);
 
-  const navBtnHandler = () => setShowMenu((state) => !state);
-
-  useEffect(() => {
-    const tailwindSMBreakpoint = 640;
-    const isMobile = window.innerWidth < tailwindSMBreakpoint;
-
-    isMobile
-      ? setShowNavBtn(true)
-      : window.addEventListener("scroll", (e) => {
-          const scrolled = window.scrollY;
-          setShowNavBtn(scrolled > 400 ? true : false);
-        });
-  }, []);
+  const navBtnHandler = () => setShowMenu((state: boolean) => !state);
 
   return createPortal(
     <>
