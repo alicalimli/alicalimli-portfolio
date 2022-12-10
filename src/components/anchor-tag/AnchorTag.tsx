@@ -20,7 +20,7 @@ const AnchorTag = ({ name, href, className = "" }: AnchorTagProps) => {
         text-lg
         duration-300
         text-muted-main
-        hover:-translate-y-2
+        hover:-translate-y-1
       `}
     >
       {name}
@@ -28,7 +28,7 @@ const AnchorTag = ({ name, href, className = "" }: AnchorTagProps) => {
         className="
           absolute
           bottom-0
-          h-0.5
+          h-px
           w-0
           duration-300
           bg-white
