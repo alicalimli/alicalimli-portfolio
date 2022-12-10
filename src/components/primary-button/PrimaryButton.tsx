@@ -20,6 +20,9 @@ const PrimaryButton = ({
     if (type === "solid") {
       return "bg-accent-primary border-accent-primary";
     }
+    if (type === "loading") {
+      return "border-accent-tinted";
+    }
   };
 
   return (
@@ -54,9 +57,8 @@ const PrimaryButton = ({
       </p>
       <div
         className={`
-        ${type === "loading" && "top-0 opacity-100"}
+        ${type === "loading" ? "top-0 opacity-100" : "top-full opacity-0"}
           absolute
-          top-full
           left-0
           grid
           h-full
@@ -64,7 +66,6 @@ const PrimaryButton = ({
           place-items-center
           bg-accent-tinted
           text-[#fff]
-          opacity-0
           duration-400
           ease-in-out
           group-hover:top-0
@@ -73,20 +74,19 @@ const PrimaryButton = ({
       >
         <AiOutlineLoading3Quarters
           className={`
-            ${type === "loading" && "opacity-100"}
+            ${type === "loading" ? "opacity-100" : "opacity-0"}
             absolute
             m-auto
             animate-spin 
             text-3xl 
             text-[#fff] 
-            opacity-0 
             duration-400
           `}
         />
         <span
           className={`
             duration-400
-            ${type === "loading" && "opacity-0"}
+            ${type === "loading" ? "opacity-0" : "opacity-100"}
           `}
         >
           {name}
