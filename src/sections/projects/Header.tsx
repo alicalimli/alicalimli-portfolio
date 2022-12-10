@@ -29,7 +29,7 @@ const Header = () => {
           Web Developer that focuses on front-end development
         </h1>
       </div>
-      <ul className="ml-auto flex gap-4">{navLinks}</ul>
+      <ul className="ml-auto hidden gap-4 sm:flex">{navLinks}</ul>
     </nav>
   );
 };
