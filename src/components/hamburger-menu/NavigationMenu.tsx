@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const navMenuVariant = {
@@ -16,6 +15,8 @@ const navMenuVariant = {
     transition: {
       duration: 0.45,
       ease: "easeInOut",
+      delayChildren: 0.15,
+      staggerChildren: 0.03,
     },
   },
 };
@@ -33,9 +34,8 @@ const navLinkVariant = {
     x: 0,
     opacity: 1,
     transition: {
-      delay: 0.2,
-      duration: 0.45,
-      ease: "easeInOut",
+      type: "spring",
+      stiffness: 80,
     },
   },
 };
@@ -43,19 +43,19 @@ const navLinkVariant = {
 const navLinksArr = [
   {
     link: "Home",
-    path: "",
+    path: "/",
   },
   {
     link: "About",
-    path: "about",
+    path: "/about",
   },
   {
     link: "Projects",
-    path: "projects",
+    path: "/projects",
   },
   {
     link: "Contact",
-    path: "contact",
+    path: "/contact",
   },
 ];
 
@@ -73,11 +73,17 @@ const NavigationMenu = ({ showMenu, setShowMenu }: NavigationMenuProps) => {
   };
 
   const navLinks = navLinksArr.map((navLink, i) => (
-    <li key={navLink.link + i}>
-      <button className="text-5xl" onClick={() => navLinkHandler(navLink.path)}>
-        {navLink.link}
-      </button>
-    </li>
+    <motion.button
+      variants={navLinkVariant}
+      key={navLink.link + i}
+      className={`
+          text-6xl
+          text-text-main
+        `}
+      onClick={() => navLinkHandler(navLink.path)}
+    >
+      {navLink.link}
+    </motion.button>
   ));
   return (
     <AnimatePresence>
@@ -95,24 +101,16 @@ const NavigationMenu = ({ showMenu, setShowMenu }: NavigationMenuProps) => {
           flex
           h-full
           w-full
-          items-center 
-          justify-start
+          flex-col 
+          items-start
+          justify-center
+          gap-8
           p-8
           px-16
           bg-bg-secondary
         "
         >
-          <motion.ul
-            variants={navLinkVariant}
-            className="
-              flex
-              flex-col
-              gap-8
-              text-text-main
-            "
-          >
-            {navLinks}
-          </motion.ul>
+          {navLinks}
         </motion.nav>
       ) : (
         ""

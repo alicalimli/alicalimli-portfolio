@@ -35,7 +35,7 @@ const HamburgerMenu = () => {
           }
           className="
           h-0.5
-          w-10
+          w-8
           bg-muted-secondary
         "
           transition={{
@@ -44,10 +44,10 @@ const HamburgerMenu = () => {
           }}
         />
         <motion.div
-          animate={showMenu ? { width: 0 } : { width: "2.5rem" }}
+          animate={showMenu ? { width: 0 } : { width: "2rem" }}
           className="
           h-0.5
-          w-10
+          w-8
           bg-muted-secondary
         "
           transition={{
@@ -61,7 +61,7 @@ const HamburgerMenu = () => {
           }
           className="
           h-0.5
-          w-10
+          w-8
           bg-muted-secondary
         "
           transition={{
