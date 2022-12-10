@@ -66,7 +66,7 @@ const ContactForm = () => {
         }
       );
       setIsSending(false);
-      navigate("/thankyou");
+      navigate("success");
     } catch (e) {
       setIsSending(false);
       setErrorMsg(e.message);
