@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 const navMenuVariant = {
   initial: {
     x: "100%",
-    borderRadius: "100vmax",
+    borderTopLeftRadius: "100vmax",
+    borderBottomLeftRadius: "100vmax",
     transition: { duration: 0.45, ease: "easeInOut" },
   },
   animate: {
     x: "0%",
-    borderRadius: "0%",
+    borderTopLeftRadius: "0vmax",
+    borderBottomLeftRadius: "0vmax",
     transition: {
       duration: 0.45,
       ease: "easeInOut",
@@ -19,7 +21,14 @@ const navMenuVariant = {
 };
 
 const navLinkVariant = {
-  initial: { x: "100%", opacity: 0 },
+  initial: {
+    x: "100%",
+    opacity: 0,
+    transition: {
+      duration: 0.45,
+      ease: "easeInOut",
+    },
+  },
   animate: {
     x: 0,
     opacity: 1,
