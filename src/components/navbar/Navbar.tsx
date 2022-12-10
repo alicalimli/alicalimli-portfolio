@@ -35,7 +35,7 @@ const Navbar = () => {
       <Link to="/" className="text-white fluid-xl">
         Ali Calimli
       </Link>
-      <ul className="ml-auto flex gap-4">{navLinks}</ul>
+      <ul className="ml-auto hidden gap-4 sm:flex">{navLinks}</ul>
     </nav>
   );
 };
