@@ -4,13 +4,16 @@ import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 
 const CustomCursor = () => {
   const [mousePos, setMousePos] = useState({
-    x: 0,
-    y: 0,
+    x: -100,
+    y: -100,
   });
 
   const { cursorSettings } = useCursorContext();
 
   useEffect(() => {
+    // Returns function if hover is not supported
+    if (window.matchMedia("(hover: none)").matches) return;
+
     document.addEventListener("mousemove", (e) => {
       const x = e.clientX;
       const y = e.clientY;
