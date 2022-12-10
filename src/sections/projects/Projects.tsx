@@ -34,7 +34,7 @@ const Projects = () => {
   const archiveBtnHandler = () => navigate("/projects");
 
   const featuredProjects = featuredProjectsArr.map((proj) => (
-    <ProjectCard proj={proj} />
+    <ProjectCard key={proj.name} proj={proj} />
   ));
 
   return (
