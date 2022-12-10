@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 interface TwLinkProps {
   name: string;
   path: string;
+  active?: boolean;
 }
 
-const TwLink = ({ name, path }: TwLinkProps) => {
+const TwLink = ({ name, path, active = false }: TwLinkProps) => {
   return (
     <Link
       to={path}
@@ -17,20 +18,21 @@ const TwLink = ({ name, path }: TwLinkProps) => {
         text-lg
         duration-300
         text-text-main
-        hover:-translate-y-2
+        hover:-translate-y-1
       "
     >
       {name}
       <div
-        className="
+        className={`
+          ${active ? "w-full" : "w-0"}
           absolute
           bottom-0
-          h-0.5
+          h-px
           w-0
           duration-300
           bg-white
           group-hover:w-full
-        "
+        `}
       />
     </Link>
   );
