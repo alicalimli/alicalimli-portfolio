@@ -19,7 +19,7 @@ const SpringyText = ({ text }: SpringyTextProps) => {
     <div>{getSpringyLetters(word)}</div>
   ));
 
-  return <h1 className="flex flex-wrap gap-x-5">{springyText}</h1>;
+  return <h1 className="flex flex-wrap gap-x-3">{springyText}</h1>;
 };
 
 export default SpringyText;
