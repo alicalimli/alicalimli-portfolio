@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import NavigationMenu from "./NavigationMenu";
+import { createPortal } from "react-dom";
 
 const navBtnVariant = {
   initial: { scale: 0 },
@@ -25,7 +26,7 @@ const HamburgerMenu = () => {
         });
   }, []);
 
-  return (
+  return createPortal(
     <>
       <AnimatePresence>
         {showNavBtn && (
@@ -37,32 +38,33 @@ const HamburgerMenu = () => {
             animate="animate"
             exit="initial"
             className="
-              fixed
-              right-0
-              z-30
-              my-8
-              mx-4
-              flex
-              h-20
-              w-20
-              flex-col
-              items-center
-              justify-center
-              gap-2
-              overflow-hidden
-              rounded-full
-              bg-[#111]
-            "
+            fixed
+            right-0
+            top-0
+            z-30
+            my-8
+            mx-4
+            flex
+            h-20
+            w-20
+            flex-col
+            items-center
+            justify-center
+            gap-2
+            overflow-hidden
+            rounded-full
+            bg-[#111]
+          "
           >
             <motion.div
               animate={
                 showMenu ? { rotate: "45deg", y: "10px" } : { rotate: "0deg" }
               }
               className="
-                h-0.5
-                w-8
-                bg-muted-secondary
-              "
+              h-0.5
+              w-8
+              bg-muted-secondary
+            "
               transition={{
                 duration: 0.45,
                 ease: "easeInOut",
@@ -72,9 +74,9 @@ const HamburgerMenu = () => {
               animate={showMenu ? { width: 0 } : { width: "2rem" }}
               initial={{ width: "2rem" }}
               className="
-                h-0.5
-                bg-muted-secondary
-              "
+              h-0.5
+              bg-muted-secondary
+            "
               transition={{
                 duration: 0.3,
                 ease: "easeInOut",
@@ -85,10 +87,10 @@ const HamburgerMenu = () => {
                 showMenu ? { rotate: "-45deg", y: "-10px" } : { rotate: "0deg" }
               }
               className="
-                h-0.5
-                w-8
-                bg-muted-secondary
-              "
+              h-0.5
+              w-8
+              bg-muted-secondary
+            "
               transition={{
                 duration: 0.3,
                 ease: "easeInOut",
@@ -98,7 +100,8 @@ const HamburgerMenu = () => {
         )}
       </AnimatePresence>
       <NavigationMenu showMenu={showMenu} setShowMenu={setShowMenu} />
-    </>
+    </>,
+    document.getElementById("nav-btn") as HTMLElement
   );
 };
 

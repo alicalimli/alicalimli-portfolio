@@ -5,7 +5,8 @@ import { About, Contact, Footer, Projects } from "./sections";
 
 function App() {
   return (
-    <main>
+    <main className="h-screen overflow-y-scroll">
+      <HamburgerMenu />
       <CustomCursor />
       <Projects />
       <About />
