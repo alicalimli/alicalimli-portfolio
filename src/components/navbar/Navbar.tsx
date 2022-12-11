@@ -33,10 +33,12 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
       {navLinksArr.map((navLink, i) => (
         <TwLink
           active={isCurrentPath(navLink.path)}
+          className="text-lg"
           key={navLink.link + i}
-          name={navLink.link}
-          path={navLink.path}
-        />
+          to={navLink.path}
+        >
+          {navLink.link}
+        </TwLink>
       ))}
     </ul>
   );

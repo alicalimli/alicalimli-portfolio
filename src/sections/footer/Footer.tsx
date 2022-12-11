@@ -1,4 +1,4 @@
-import AnchorTag from "../../components/anchor-tag/AnchorTag";
+import TwLink from "../../components/tw-link/TwLink";
 
 const socialsArr = [
   { name: "Twitter", link: "https://twitter.com/alicalimli_dev" },
@@ -10,11 +10,9 @@ const socialsArr = [
 const Footer = () => {
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
-      <AnchorTag
-        className="text-sm text-white"
-        name={social.name}
-        href={social.link}
-      />
+      <TwLink className="text-sm text-white" href={social.link}>
+        {social.name}
+      </TwLink>
     </li>
   ));
 

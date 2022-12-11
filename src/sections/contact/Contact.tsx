@@ -3,7 +3,7 @@ import { profile } from "../../assets";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 import { SpringyText } from "../../components";
-import AnchorTag from "../../components/anchor-tag/AnchorTag";
+import TwLink from "../../components/tw-link/TwLink";
 
 const socialsArr = [
   { name: "LinkedIn", link: "https://www.linkedin.com/in/alicalimli/" },
@@ -14,7 +14,9 @@ const socialsArr = [
 const Contact = () => {
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
-      <AnchorTag className="" name={social.name} href={social.link} />
+      <TwLink className="text-lg text-muted-main" href={social.link}>
+        {social.name}
+      </TwLink>
     </li>
   ));
 
@@ -35,11 +37,12 @@ const Contact = () => {
           <img src={profile} className="h-28 w-28 rounded-full" />
           <div>
             <h3 className="text-3xl text-text-main">Email</h3>
-            <AnchorTag
-              name="alicalimli76@gmail.com"
+            <TwLink
               className="text-lg text-muted-main"
               href="mailto:alicalimli76@gmail.com"
-            />
+            >
+              alicalimli76@gmail.com
+            </TwLink>
           </div>
           <div>
             <h3 className="text-3xl text-text-main">Socials</h3>
