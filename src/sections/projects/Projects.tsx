@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { acmessenger, moviematrix } from "../../assets";
-import { PrimaryButton } from "../../components";
-import Header from "./Header";
+import { Navbar, PrimaryButton } from "../../components";
 import ProjectCard from "./ProjectCard";
 
 const featuredProjectsArr = [
@@ -46,7 +45,7 @@ const Projects = () => {
           gap-8 
         "
       >
-        <Header />
+        <Navbar type="main" />
         <ul
           className="
             grid 
