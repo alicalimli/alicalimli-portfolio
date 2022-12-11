@@ -8,6 +8,9 @@ module.exports = {
         400: "400ms",
         450: "450ms",
       },
+      width: {
+        128: "32rem",
+      },
     },
     themes: {
       dark: {

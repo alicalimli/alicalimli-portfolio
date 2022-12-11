@@ -126,20 +126,23 @@ const NavigationMenu = ({ showMenu, setShowMenu }: NavigationMenuProps) => {
           animate="animate"
           exit="initial"
           className="
-          fixed
-          inset-0
-          z-20
-          flex
-          h-full
-          w-full
-          flex-col 
-          items-start
-          justify-center
-          gap-8
-          p-8
-          px-16
-          bg-bg-secondary
-        "
+            fixed
+            top-0
+            right-0
+            z-20
+            flex
+            h-full
+            w-full
+            flex-col
+            items-start 
+            justify-center
+            gap-8
+            p-8
+            px-16
+            bg-bg-secondary
+            sm:w-128
+            sm:px-24
+          "
         >
           {navLinks}
         </motion.nav>
