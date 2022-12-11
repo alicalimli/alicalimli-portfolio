@@ -14,7 +14,7 @@ const socialsArr = [
 const Contact = () => {
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
-      <TwLink className="text-lg text-muted-main" href={social.link}>
+      <TwLink className="text-lg text-white" href={social.link}>
         {social.name}
       </TwLink>
     </li>
@@ -33,19 +33,19 @@ const Contact = () => {
           </header>
           <ContactForm />
         </div>
-        <div className="hidden w-1/4 flex-col gap-4 md:flex">
+        <div className="hidden w-1/2 flex-col gap-4 lg:flex xl:w-1/4">
           <img src={profile} className="h-28 w-28 rounded-full" />
           <div>
-            <h3 className="text-3xl text-text-main">Email</h3>
+            <h3 className="fluid-md text-muted-main">Email</h3>
             <TwLink
-              className="text-lg text-muted-main"
+              className="text-lg text-white"
               href="mailto:alicalimli76@gmail.com"
             >
               alicalimli76@gmail.com
             </TwLink>
           </div>
           <div>
-            <h3 className="text-3xl text-text-main">Socials</h3>
+            <h3 className="fluid-md text-muted-main">Socials</h3>
             <ul className="flex flex-col">{socials}</ul>
           </div>
         </div>
