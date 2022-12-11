@@ -62,10 +62,10 @@ const About = () => {
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           className="
-          hidden 
-          w-3/4
-          max-w-full
-          md:block  
+            hidden 
+            w-3/4
+            max-w-full
+            lg:block  
           "
           viewport={{ once: true }}
           transition={{ type: "spring", mass: 0.2 }}
