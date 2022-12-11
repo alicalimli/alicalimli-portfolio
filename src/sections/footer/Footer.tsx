@@ -15,12 +15,9 @@ const Footer = () => {
   ));
 
   return (
-    <footer className="mt-8 flex p-4 px-8">
-      <p className="text-sm text-muted-main">
-        Copyright © 2022 <span className="text-white">Ali Calimli</span>. All
-        Rights Reserved
-      </p>
-      <ul className="ml-auto flex gap-4">{socials}</ul>
+    <footer className="mt-8 flex flex-col flex-wrap items-center justify-center gap-2 p-4 px-8 sm:flex-row">
+      <p className="text-sm text-white">Designed & Developed by Ali Calimli</p>
+      <ul className="ml-0 flex gap-4 text-white sm:ml-auto">{socials}</ul>
     </footer>
   );
 };
