@@ -33,18 +33,21 @@ const About = () => {
 
   return (
     <section className="section">
-      <main className="flex items-center gap-4">
+      <main className="flex items-center justify-center gap-4 md:justify-start">
         <header
           className="
-          flex
+          flex 
           w-full 
-          max-w-xl 
-          flex-col 
-          items-start
+          max-w-2xl
+          flex-col
+          items-center
           gap-2
+          text-center
+          md:items-start
+          md:text-left
         "
         >
-          <SpringyText text="A Little About Me" />
+          <SpringyText className="justify-center" text="A Little About Me" />
           <p className="text-muted-main fluid-lg">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero illo
             necessitatibus pariatur! Beatae earum recusandae, id magnam hic
@@ -54,7 +57,7 @@ const About = () => {
 
           <PrimaryButton
             name="More About Me"
-            className="mt-8"
+            className="mt-8 w-fit"
             onClick={() => navigate("/about")}
           />
         </header>
@@ -65,7 +68,7 @@ const About = () => {
             hidden 
             w-3/4
             max-w-full
-            lg:block  
+            md:block  
           "
           viewport={{ once: true }}
           transition={{ type: "spring", mass: 0.2 }}

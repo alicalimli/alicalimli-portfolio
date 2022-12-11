@@ -24,8 +24,14 @@ const Contact = () => {
     <section className="section ">
       <main className="flex gap-16">
         <div className="flex flex-col gap-12">
-          <header className="flex flex-col gap-2">
-            <SpringyText text="Lets Collaborate!" />
+          <header
+            className="flex flex-col items-center           
+            gap-2
+            text-center
+            md:items-start
+            md:text-left"
+          >
+            <SpringyText className="justify-center" text="Get In Touch!" />
             <h1 className="max-w-xl text-muted-main fluid-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Cupiditate, consectetur!

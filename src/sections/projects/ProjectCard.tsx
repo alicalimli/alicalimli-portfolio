@@ -60,7 +60,9 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
           </div>
           <div className="flex flex-col">
             <span className="text-sm  text-muted-secondary">{proj.role}</span>
-            <h2 className="text-4xl font-bold text-text-main">{proj.name}</h2>
+            <h2 className="break-all text-4xl font-bold text-text-main">
+              {proj.name}
+            </h2>
             <hr className="my-4 border-muted-secondary" />
             <p className="text-lg text-muted-main">{proj.desc}</p>
           </div>
