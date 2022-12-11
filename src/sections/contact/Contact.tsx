@@ -14,7 +14,7 @@ const socialsArr = [
 const Contact = () => {
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
-      <AnchorTag name={social.name} href={social.link} />
+      <AnchorTag className="" name={social.name} href={social.link} />
     </li>
   ));
 
@@ -37,6 +37,7 @@ const Contact = () => {
             <h3 className="text-3xl text-text-main">Email</h3>
             <AnchorTag
               name="alicalimli76@gmail.com"
+              className="text-lg text-muted-main"
               href="mailto:alicalimli76@gmail.com"
             />
           </div>
