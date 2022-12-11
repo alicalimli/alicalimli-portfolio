@@ -7,7 +7,7 @@ interface NavbarProps {
   type?: "main" | "secondary";
 }
 
-const Name = "Ali Calimlis";
+const Name = "Ali Calimli";
 
 const Navbar = ({ type = "secondary" }: NavbarProps) => {
   const { pathname } = useLocation();
