@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 interface AnchorTagProps {
   name: string;
   href: string;
@@ -5,23 +7,25 @@ interface AnchorTagProps {
 }
 
 const AnchorTag = ({ name, href, className = "" }: AnchorTagProps) => {
+  const anchorTagClass = twMerge(`
+    group 
+    relative
+    inline-block
+    h-fit
+    py-1
+    text-sm
+    duration-300
+    text-white
+    hover:-translate-y-1
+    ${className}
+  `);
+
   return (
     <a
       href={href}
       rel="noopener noreferrer"
       target="_blank"
-      className={`
-        ${className}
-        group 
-        relative
-        inline-block
-        h-fit
-        py-1
-        text-lg
-        duration-300
-        text-muted-main
-        hover:-translate-y-1
-      `}
+      className={anchorTagClass}
     >
       {name}
       <div

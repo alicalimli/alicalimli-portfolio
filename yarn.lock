@@ -1235,6 +1235,11 @@ tailwind-fluid-typography@^1.3.0:
   resolved "https://registry.yarnpkg.com/tailwind-fluid-typography/-/tailwind-fluid-typography-1.3.0.tgz#243ba14cad3baada94a9a80f8007aafc7c6f47a6"
   integrity sha512-W6zqO8xD1FAtAOBiWArvpyI5CMzKek9tIjOmwwzDCsiEJaGvhv2WGlEaV0Sl1O5Bn5hMBHiNMdzhz/QIblvIyQ==
 
+tailwind-merge@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-1.8.0.tgz#41c4730b2a51ca7a905c6beebcbfe237bfb61f30"
+  integrity sha512-tER/2SbYRdfPYg6m4pDWZSlbymLTmDi+dx4iCsJmgmz4UDGzgnVelOvBe3GNtGCw9Bmc4MiObfJJbKeVL+KnMQ==
+
 tailwind-scrollbar@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/tailwind-scrollbar/-/tailwind-scrollbar-2.0.1.tgz#f08721173d513f1406a44601640b79726e3f9728"
