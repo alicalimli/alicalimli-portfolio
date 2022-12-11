@@ -51,7 +51,7 @@ const Projects = () => {
             grid 
             grid-cols-1 
             gap-16 
-            sm:grid-cols-2 
+            md:grid-cols-2 
           "
         >
           {featuredProjects}
