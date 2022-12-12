@@ -119,7 +119,7 @@ const ContactForm = () => {
       <PrimaryButton
         name={"Send Message"}
         type={isSending ? "loading" : "solid"}
-        className="mt-8 ml-auto"
+        className="mx-auto mt-8 md:mx-0 md:ml-auto"
         onClick={() => console.log("")}
       />
     </form>

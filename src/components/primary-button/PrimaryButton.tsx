@@ -33,7 +33,8 @@ const PrimaryButton = ({
           ${className}
           group
           relative
-          cursor-pointer overflow-hidden
+          w-fit cursor-pointer
+          overflow-hidden
           rounded-full
           border
           p-5

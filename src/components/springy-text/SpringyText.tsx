@@ -1,10 +1,20 @@
 import SpringyLetter from "./SpringyLetter";
+import { twMerge } from "tailwind-merge";
 
 interface SpringyTextProps {
   text: string;
+  className?: string;
 }
 
-const SpringyText = ({ text }: SpringyTextProps) => {
+const SpringyText = ({ text, className }: SpringyTextProps) => {
+  const springyTextParentClass = twMerge(`
+    ${className}
+    flex 
+    flex-wrap 
+    gap-x-3 
+    md:justify-start
+  `);
+
   const words = text.split(" ");
 
   const getSpringyLetters = (word: string) => {
@@ -19,7 +29,7 @@ const SpringyText = ({ text }: SpringyTextProps) => {
     <div key={word}>{getSpringyLetters(word)}</div>
   ));
 
-  return <h1 className="flex flex-wrap gap-x-3">{springyText}</h1>;
+  return <h1 className={springyTextParentClass}>{springyText}</h1>;
 };
 
 export default SpringyText;
