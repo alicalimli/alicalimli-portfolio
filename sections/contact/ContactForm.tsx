@@ -75,7 +75,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={submitForm} className="flex w-full flex-col gap-12">
+    <form onSubmit={submitForm} className="flex flex-col gap-12">
       <label htmlFor="name" className="relative text-text-main">
         <input
           type="text"
