@@ -32,7 +32,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
         className="flex flex-col gap-4"
         href={`projects/${proj.name}`}
       >
-        <a
+        <div
           className="
             flex 
             w-full 
@@ -108,7 +108,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
             />
             <p className="text-lg text-muted-main">{proj.desc}</p>
           </div>
-        </a>
+        </div>
         <Chip texts={proj.tools} />
       </Link>
     </li>
