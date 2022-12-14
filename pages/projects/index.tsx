@@ -1,7 +1,15 @@
 import React from "react";
+import Head from "next/head";
 
 const Projects = () => {
-  return <h1>Projects</h1>;
+  return (
+    <>
+      <Head>
+        <title>Projects</title>
+      </Head>
+      <div>Projects</div>
+    </>
+  );
 };
 
 export default Projects;
