@@ -1,7 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.section {
-  @apply m-auto max-w-7xl p-8 lg:px-16 lg:py-7 xl:px-24 xl:py-14;
-}
