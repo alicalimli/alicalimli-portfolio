@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx,html}", "./*.html"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./setup/**/*.{js,ts,jsx,tsx}",
+    "./sections/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: ["class", '[data-mode="theme-dark"]'],
   theme: {
     extend: {
