@@ -23,7 +23,7 @@ const Contact = () => {
   return (
     <section className="section ">
       <main className="flex gap-16">
-        <div className="flex flex-col gap-12">
+        <div className="flex w-full flex-col gap-12">
           <header
             className="flex flex-col items-center           
             gap-2
@@ -32,7 +32,7 @@ const Contact = () => {
             md:text-left"
           >
             <SpringyText className="justify-center" text="Get In Touch!" />
-            <h1 className="max-w-xl text-muted-main fluid-lg">
+            <h1 className="text-muted-main fluid-lg ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Cupiditate, consectetur!
             </h1>
