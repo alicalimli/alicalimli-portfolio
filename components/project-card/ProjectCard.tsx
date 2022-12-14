@@ -20,41 +20,37 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
   const projectMouseEnter = () => projectCursor();
 
   const projectMouseLeave = () => defaultCursor();
+
   return (
-    <li
-      key={proj.name}
-      className="group"
+    <Link
+      onClick={() => projectMouseLeave()}
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
+      className="group flex flex-col gap-4"
+      href={`projects/${proj.name.toLowerCase()}`}
     >
-      <Link
-        onClick={() => projectMouseLeave()}
-        className="flex flex-col gap-4"
-        href={`projects/${proj.name}`}
-      >
-        <div
-          className="
+      <div
+        className="
             flex 
             w-full 
             flex-col 
             gap-8
           "
-        >
-          <div
-            className="
+      >
+        <div
+          className="
               relative 
               inline-block 
               h-96 w-full 
               bg-bg-secondary 
             "
-          >
-            <div>
-              <Image
-                src={`/images/${proj.img}.png`}
-                alt={`${proj.name} screenshot`}
-                layout="fill"
-                objectFit="contain"
-                className="
+        >
+          <Image
+            src={`/images/${proj.img}.png`}
+            alt={`${proj.name} screenshot`}
+            layout="fill"
+            objectFit="contain"
+            className="
                   h-full 
                   w-full 
                   px-6 py-12 
@@ -64,10 +60,9 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
                   lg:py-12 
                   lg:px-8
                 "
-              />
-            </div>
-            <div
-              className="
+          />
+          <div
+            className="
                 pointer-events-none 
                 absolute 
                 inset-0 
@@ -79,39 +74,38 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
                 bg-bg-main
                 group-hover:opacity-0
               "
-            />
-          </div>
-          <div className="flex flex-col">
-            <span
-              className="
+          />
+        </div>
+        <div className="flex flex-col">
+          <span
+            className="
                 text-sm  
                 text-muted-secondary
               "
-            >
-              {proj.role}
-            </span>
-            <h2
-              className="
+          >
+            {proj.role}
+          </span>
+          <h2
+            className="
               break-all 
               text-4xl 
               font-bold 
               text-text-main
               "
-            >
-              {proj.name}
-            </h2>
-            <hr
-              className="
+          >
+            {proj.name}
+          </h2>
+          <hr
+            className="
                 my-4 
                 border-muted-secondary
               "
-            />
-            <p className="text-lg text-muted-main">{proj.desc}</p>
-          </div>
+          />
+          <p className="text-lg text-muted-main">{proj.desc}</p>
         </div>
-        <Chip texts={proj.tools} />
-      </Link>
-    </li>
+      </div>
+      <Chip texts={proj.tools} />
+    </Link>
   );
 };
 
