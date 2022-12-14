@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { useEffect, useRef, useState } from "react";
-import { HamburgerMenu, Navbar, Footer } from "../../components";
+import { HamburgerMenu, Navbar, Footer, CustomCursor } from "../../components";
 
 const Layout = ({ children }) => {
   const { pathname } = useRouter();
@@ -34,6 +34,7 @@ const Layout = ({ children }) => {
     <>
       <main ref={scrollContainerRef} className=" h-screen  overflow-y-scroll">
         <HamburgerMenu showNavBtn={showNavBtn} setShowNavBtn={setShowNavBtn} />
+        <CustomCursor />
         <Navbar />
         <div className="flex flex-col gap-16">{children}</div>
         <Footer />

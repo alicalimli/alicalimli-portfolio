@@ -47,18 +47,20 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
     >
-      <Link className="flex flex-col gap-4" href={`projects/${proj.name}`}>
+      <Link
+        onClick={() => projectMouseLeave()}
+        className="flex flex-col gap-4"
+        href={`projects/${proj.name}`}
+      >
         <a className="flex w-full flex-col gap-8">
-          <div className="relative inline-block h-64 w-full px-6 py-12 bg-bg-secondary lg:py-16 lg:px-12">
-            <div className="h-full w-full">
-              <Image
-                src={`/images/${proj.img}.png`}
-                alt="project screenshot"
-                className="h-full w-full"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
+          <div className="relative inline-block h-96 w-full bg-bg-secondary ">
+            <Image
+              src={`/images/${proj.img}.png`}
+              alt={`${proj.name} screenshot`}
+              className="h-full w-full px-6 py-12 lg:py-12 lg:px-8"
+              layout="fill"
+              objectFit="contain"
+            />
             <motion.div
               variants={projectOverlayVariant}
               className="absolute inset-0 z-10 h-full w-full bg-bg-main"
