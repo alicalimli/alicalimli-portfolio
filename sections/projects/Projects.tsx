@@ -1,6 +1,4 @@
-// import { acmessenger, moviematrix } from "../../../public/assets";
-import { Navbar, PrimaryButton } from "../../components";
-import ProjectCard from "./ProjectCard";
+import { PrimaryButton, ProjectCard } from "../../components";
 import React from "react";
 import Link from "next/link";
 
@@ -30,7 +28,9 @@ const featuredProjectsArr = [
 
 const Projects = () => {
   const featuredProjects = featuredProjectsArr.map((proj) => (
-    <ProjectCard key={proj.name} proj={proj} />
+    <li key={proj.name}>
+      <ProjectCard proj={proj} />
+    </li>
   ));
 
   return (

@@ -6,6 +6,7 @@ import Navbar from "./navbar/Navbar";
 import HamburgerMenu from "./hamburger-menu/HamburgerMenu";
 import Layout from "./layout/Layout";
 import Portal from "./portal/Portal";
+import ProjectCard from "./project-card/ProjectCard";
 import Footer from "./footer/Footer";
 
 export {
@@ -16,6 +17,7 @@ export {
   PrimaryButton,
   Navbar,
   HamburgerMenu,
+  ProjectCard,
   Portal,
   Layout,
 };
