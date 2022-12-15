@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { ProjectCard, SpringyText } from "../../components";
+import { PrimaryButton, ProjectCard, SpringyText } from "../../components";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 import Image from "next/image";
 
@@ -33,23 +33,48 @@ const otherProjectsArr = [
     name: "Quizzical",
     role: "Development",
     link: "https://quizzical-ali.netlify.app/",
+    img: "moviematrix",
   },
   {
     name: "Clipboard",
     role: "Development",
     link: "https://clipboard-ali.netlify.app/",
+    img: "acmessenger",
   },
   {
     name: "Todo list",
     role: "Design & Development",
     link: "https://todo-list-ali.netlify.app/",
+    img: "moviematrix",
   },
 ];
 
 const Projects = () => {
   const { projectCursor, defaultCursor } = useCursorContext();
 
-  const otherProjMouseEnter = () => projectCursor("Visit");
+  const [imgPath, setImgPath] = useState("acmessenger");
+
+  const otherProjMouseEnter = (projImg: string) => {
+    setImgPath(projImg);
+    projectCursor("Visit");
+  };
+
+  const [mousePos, setMousePos] = useState({
+    x: -100,
+    y: -100,
+  });
+
+  useEffect(() => {
+    // Returns function if hover is not supported
+    if (window.matchMedia("(hover: none)").matches) return;
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      setMousePos({ x, y });
+    });
+  }, []);
 
   const projectMouseLeave = () => defaultCursor();
 
@@ -62,14 +87,32 @@ const Projects = () => {
   const otherProjects = otherProjectsArr.map((proj) => (
     <li
       key={proj.name}
-      onMouseEnter={otherProjMouseEnter}
+      onMouseEnter={() => otherProjMouseEnter(proj.img)}
       onMouseLeave={projectMouseLeave}
       className="
         group 
+        relative
         border-t
-        border-white
+        border-muted-secondary/50
       "
     >
+      <Image
+        src={`/images/${imgPath}.png`}
+        width={440}
+        height={440}
+        alt={""}
+        className={`
+            pointer-events-none
+            absolute
+            z-10
+            scale-0
+            opacity-0 
+            duration-400
+            ease-in-out
+            group-hover:scale-100
+            group-hover:opacity-100
+          `}
+      />
       <a
         rel="noopener noreferrer"
         target="_blank"
@@ -89,7 +132,7 @@ const Projects = () => {
       >
         <h2
           className="
-            fluid-lg
+            fluid-xl
           "
         >
           {proj.name}
@@ -107,18 +150,6 @@ const Projects = () => {
 
       <main className="section flex flex-col gap-8">
         <section className="flex flex-col gap-8">
-          <header
-            className="flex max-w-xl flex-col           
-            items-center
-            gap-2
-            text-center
-            md:items-start
-            md:text-left
-          "
-          >
-            <SpringyText className="justify-center" text="My Projects" />
-          </header>
-
           <ul
             className="
             grid 
@@ -134,6 +165,8 @@ const Projects = () => {
         <section className="mt-16">
           <ul className="flex flex-col">{otherProjects}</ul>
         </section>
+
+        <PrimaryButton name={"Contact Me"} className="mx-auto mt-16" />
       </main>
     </>
   );

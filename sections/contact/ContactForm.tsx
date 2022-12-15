@@ -12,7 +12,7 @@ const inputClass = `
       text-2xl 
       outline-none 
       duration-300 
-      border-muted-secondary 
+      border-muted-secondary/30
       text-text-main  
       focus-within:border-white
       `;
@@ -23,13 +23,13 @@ const spanLabelClass = `
       left-0
       text-lg
       duration-300
-      text-muted-main
+      text-muted-secondary
       peer-placeholder-shown:top-0
       peer-placeholder-shown:text-2xl
       peer-placeholder-shown:text-white
       peer-focus-within:-top-7
       peer-focus-within:text-lg
-      peer-focus-within:text-muted-main
+      peer-focus-within:text-muted-secondary
       `;
 
 const ContactForm = () => {

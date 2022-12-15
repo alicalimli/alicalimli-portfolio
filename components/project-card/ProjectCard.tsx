@@ -26,7 +26,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
       onClick={() => projectMouseLeave()}
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
-      className="group flex flex-col gap-4"
+      className="group flex flex-col gap-4 "
       href={`projects/${proj.name.toLowerCase()}`}
     >
       <div
@@ -41,8 +41,10 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
           className="
               relative 
               inline-block 
-              h-96 w-full 
+              h-72 w-full 
+              rounded-md 
               bg-bg-secondary 
+              sm:h-96
             "
         >
           <Image
@@ -98,7 +100,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
           <hr
             className="
                 my-4 
-                border-muted-secondary
+                border-muted-secondary/50
               "
           />
           <p className="text-lg text-muted-main">{proj.desc}</p>

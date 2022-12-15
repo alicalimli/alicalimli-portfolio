@@ -51,7 +51,7 @@ const CustomCursor = () => {
       className="
         pointer-events-none 
         fixed 
-        z-10 
+        z-30
         grid 
         h-28 w-28 
         place-items-center 
