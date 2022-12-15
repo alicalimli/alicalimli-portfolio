@@ -1,5 +1,5 @@
 import { PrimaryButton, ProjectCard } from "../../components";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 
 const featuredProjectsArr = [
