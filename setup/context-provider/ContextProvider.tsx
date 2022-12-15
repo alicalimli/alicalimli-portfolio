@@ -30,10 +30,10 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
     title: "",
   });
 
-  const projectCursor = () =>
+  const projectCursor = (title: string = "View") =>
     setCursorSettings({
       variant: "projectCard",
-      title: "View",
+      title,
     });
 
   const defaultCursor = () =>
