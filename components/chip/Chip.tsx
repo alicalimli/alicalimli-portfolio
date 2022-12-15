@@ -6,7 +6,10 @@ interface ChipProps {
 
 const Chip = ({ texts }: ChipProps) => {
   const chips = texts.map((text: string) => (
-    <span key={text} className="p-2 px-4 bg-bg-secondary text-white">
+    <span
+      key={text}
+      className="rounded-lg p-2 px-4 text-sm bg-bg-secondary text-white"
+    >
       {text}
     </span>
   ));
