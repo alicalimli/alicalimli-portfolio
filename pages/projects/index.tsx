@@ -3,6 +3,7 @@ import Head from "next/head";
 import { PrimaryButton, ProjectCard, SpringyText } from "../../components";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const featuredProjectsArr = [
   {
@@ -84,9 +85,22 @@ const Projects = () => {
     </li>
   ));
 
+  const liVariant = {
+    initial: {},
+    hover: {},
+  };
+
+  const imgVariant = {
+    initial: { scale: 0.5, opacity: 0 },
+    hover: { scale: 1, opacity: 1 },
+  };
+
   const otherProjects = otherProjectsArr.map((proj) => (
-    <li
+    <motion.li
       key={proj.name}
+      variants={liVariant}
+      initial="initial"
+      whileHover="hover"
       onMouseEnter={() => otherProjMouseEnter(proj.img)}
       onMouseLeave={projectMouseLeave}
       className="
@@ -96,21 +110,15 @@ const Projects = () => {
         border-muted-secondary/50
       "
     >
-      <Image
-        src={`/images/${imgPath}.png`}
-        width={440}
-        height={440}
+      <motion.img
+        src={`/images/${proj.img}.png`}
+        variants={imgVariant}
         alt={""}
         className={`
-            pointer-events-none
             absolute
+            top-0
+            left-0
             z-10
-            scale-0
-            opacity-0 
-            duration-400
-            ease-in-out
-            group-hover:scale-100
-            group-hover:opacity-100
           `}
       />
       <a
@@ -139,7 +147,7 @@ const Projects = () => {
         </h2>
         <p className="fluid-md ml-auto">{proj.role}</p>
       </a>
-    </li>
+    </motion.li>
   ));
 
   return (
