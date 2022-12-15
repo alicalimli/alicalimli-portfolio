@@ -85,42 +85,55 @@ const Projects = () => {
     </li>
   ));
 
-  const liVariant = {
-    initial: {},
-    hover: {},
-  };
-
   const imgVariant = {
-    initial: { scale: 0.5, opacity: 0 },
-    hover: { scale: 1, opacity: 1 },
+    animate: {
+      top: mousePos.y,
+      left: mousePos.x,
+      x: "-50%",
+      y: "-60%",
+      transition: {
+        type: "spring",
+        mass: 0.3,
+      },
+    },
   };
 
   const otherProjects = otherProjectsArr.map((proj) => (
-    <motion.li
+    <li
       key={proj.name}
-      variants={liVariant}
-      initial="initial"
-      whileHover="hover"
       onMouseEnter={() => otherProjMouseEnter(proj.img)}
       onMouseLeave={projectMouseLeave}
       className="
         group 
-        relative
         border-t
         border-muted-secondary/50
       "
     >
-      <motion.img
-        src={`/images/${proj.img}.png`}
+      <motion.div
         variants={imgVariant}
-        alt={""}
+        animate={"animate"}
         className={`
-            absolute
-            top-0
-            left-0
-            z-10
+          pointer-events-none
+          absolute
+          top-0
+          left-0
+          z-10
+        `}
+      >
+        <motion.img
+          src={`/images/${proj.img}.png`}
+          alt={""}
+          className={`
+            ease
+            scale-50
+            opacity-0
+            duration-300
+            group-hover:scale-100
+            group-hover:opacity-100
           `}
-      />
+        />
+      </motion.div>
+
       <a
         rel="noopener noreferrer"
         target="_blank"
@@ -147,7 +160,7 @@ const Projects = () => {
         </h2>
         <p className="fluid-md ml-auto">{proj.role}</p>
       </a>
-    </motion.li>
+    </li>
   ));
 
   return (

@@ -44,6 +44,9 @@ module.exports = {
       "muted-secondary": "#fff",
     },
   },
+  transitionProperty: {
+    scale: "scale",
+  },
   plugins: [
     require("tailwind-theme-switcher"),
     require("tailwind-scrollbar")({ nocompatible: true }),
