@@ -46,9 +46,19 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed z-10 grid h-28 w-28 place-items-center rounded-full bg-accent-primary"
       variants={variants}
       animate={cursorSettings.variant}
+      className="
+        pointer-events-none 
+        fixed 
+        z-10 
+        grid 
+        h-28 w-28 
+        place-items-center 
+        rounded-full 
+        text-center
+      bg-accent-primary
+      "
     >
       <p className="text-white">{cursorSettings.title}</p>
     </motion.div>
