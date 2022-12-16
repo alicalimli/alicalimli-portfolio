@@ -105,8 +105,6 @@ const Projects = () => {
       onMouseLeave={projectMouseLeave}
       className="
         group 
-        border-t
-        border-muted-secondary/50
       "
     >
       <motion.div
@@ -117,17 +115,18 @@ const Projects = () => {
           absolute
           top-0
           left-0
-          z-10
         `}
       >
         <motion.img
           src={`/images/${proj.img}.png`}
           alt={""}
           className={`
-            ease
+            invisible
             scale-50
             opacity-0
-            duration-300
+            duration-400
+            ease-in-out
+            group-hover:visible
             group-hover:scale-100
             group-hover:opacity-100
           `}
@@ -142,18 +141,21 @@ const Projects = () => {
           flex
           items-center
           gap-4
-          p-4
+          border-t
+          border-muted-secondary/20
+          p-4 
           py-8
-          duration-400 
+          duration-400
           ease-in-out
           text-white
-          group-hover:scale-105
-          group-hover:text-accent-tinted
+          group-hover:scale-x-105
+          group-hover:text-muted-secondary/50
+          hover:border-white
         "
       >
         <h2
           className="
-            fluid-xl
+            fluid-2xl
           "
         >
           {proj.name}
