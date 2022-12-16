@@ -7,6 +7,7 @@ type CursorContextType = {
   };
   projectCursor: () => void;
   defaultCursor: () => void;
+  otherProjectCursor: (title: string) => void;
 };
 
 export const CursorContext = React.createContext<CursorContextType>({
@@ -16,6 +17,7 @@ export const CursorContext = React.createContext<CursorContextType>({
   },
   projectCursor: () => null,
   defaultCursor: () => null,
+  otherProjectCursor: (title: string) => null,
 });
 
 export const useCursorContext = () => useContext(CursorContext);
@@ -36,6 +38,12 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
       title,
     });
 
+  const otherProjectCursor = (title: string) =>
+    setCursorSettings({
+      variant: "otherProject",
+      title,
+    });
+
   const defaultCursor = () =>
     setCursorSettings({
       variant: "default",
@@ -44,7 +52,12 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
 
   return (
     <CursorContext.Provider
-      value={{ cursorSettings, projectCursor, defaultCursor }}
+      value={{
+        cursorSettings,
+        projectCursor,
+        defaultCursor,
+        otherProjectCursor,
+      }}
     >
       {children}
     </CursorContext.Provider>

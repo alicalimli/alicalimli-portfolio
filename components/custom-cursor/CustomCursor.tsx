@@ -42,6 +42,19 @@ const CustomCursor = () => {
         mass: 0.3,
       },
     },
+    otherProject: {
+      width: 66,
+      height: 66,
+      top: mousePos.y,
+      left: mousePos.x,
+      x: "-50%",
+      y: "-60%",
+      scale: 1,
+      transition: {
+        type: "spring",
+        mass: 0.3,
+      },
+    },
   };
 
   return (

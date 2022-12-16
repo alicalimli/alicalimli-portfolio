@@ -3,6 +3,7 @@ import Head from "next/head";
 import { PrimaryButton, ProjectCard, SpringyText } from "../../components";
 import { useCursorContext } from "../../setup/context-provider/ContextProvider";
 import Image from "next/image";
+import { BiLinkExternal } from "react-icons/bi";
 import { motion } from "framer-motion";
 
 const featuredProjectsArr = [
@@ -51,13 +52,13 @@ const otherProjectsArr = [
 ];
 
 const Projects = () => {
-  const { projectCursor, defaultCursor } = useCursorContext();
+  const { defaultCursor, otherProjectCursor } = useCursorContext();
 
   const [imgPath, setImgPath] = useState("acmessenger");
 
   const otherProjMouseEnter = (projImg: string) => {
     setImgPath(projImg);
-    projectCursor("Visit");
+    otherProjectCursor(<BiLinkExternal className="text-2xl" />);
   };
 
   const [mousePos, setMousePos] = useState({
