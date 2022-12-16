@@ -35,19 +35,19 @@ const otherProjectsArr = [
     name: "Quizzical",
     role: "Development",
     link: "https://quizzical-ali.netlify.app/",
-    img: "moviematrix",
+    img: "quizzical.jpg",
   },
   {
     name: "Clipboard",
     role: "Development",
     link: "https://clipboard-ali.netlify.app/",
-    img: "acmessenger",
+    img: "clipboard.jpg",
   },
   {
     name: "Todo list",
     role: "Design & Development",
     link: "https://todo-list-ali.netlify.app/",
-    img: "moviematrix",
+    img: "todolist.jpg",
   },
 ];
 
@@ -118,9 +118,11 @@ const Projects = () => {
           left-0
         `}
       >
-        <motion.img
-          src={`/images/${proj.img}.png`}
+        <Image
+          src={`/images/${proj.img}`}
           alt={""}
+          width={542}
+          height={542}
           className={`
             invisible
             scale-50
@@ -146,11 +148,11 @@ const Projects = () => {
           border-muted-secondary/20
           p-4 
           py-8
+          text-muted-secondary/80
           duration-400
           ease-in-out
-          text-white
           group-hover:scale-x-105
-          group-hover:text-muted-secondary/50
+          group-hover:text-white
           hover:border-white
         "
       >
