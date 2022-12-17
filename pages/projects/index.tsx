@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { PrimaryButton, ProjectCard, SpringyText } from "../../components";
-import { useCursorContext } from "../../setup/context-provider/ContextProvider";
+import { PrimaryButton, ProjectCard } from "../../components";
+import { useCursorContext } from "../../hooks";
 import Image from "next/image";
-import { BiLinkExternal } from "react-icons/bi";
 import { motion } from "framer-motion";
 
 const featuredProjectsArr = [
@@ -58,7 +57,7 @@ const Projects = () => {
 
   const otherProjMouseEnter = (projImg: string) => {
     setImgPath(projImg);
-    otherProjectCursor(<BiLinkExternal className="text-2xl" />);
+    otherProjectCursor();
   };
 
   const [mousePos, setMousePos] = useState({

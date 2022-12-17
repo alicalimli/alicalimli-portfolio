@@ -1,6 +1,6 @@
 import React from "react";
 import { Chip } from "../../components";
-import { useCursorContext } from "../../setup/context-provider/ContextProvider";
+import { useCursorContext } from "../../hooks";
 import Link from "next/link";
 import Image from "next/image";
 

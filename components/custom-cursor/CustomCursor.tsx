@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { useEffect, useState } from "react";
-import { useCursorContext } from "../../setup/context-provider/ContextProvider";
+import { useCursorContext } from "../../hooks";
 
 const CustomCursor = () => {
   const [mousePos, setMousePos] = useState({
