@@ -6,6 +6,7 @@ import Image from "next/image";
 
 interface ProjectCardProps {
   proj: {
+    title: string;
     name: string;
     role: string;
     desc: string;
@@ -27,7 +28,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
       className="group flex flex-col gap-4 "
-      href={`projects/${proj.name.toLowerCase()}`}
+      href={`projects/${proj.name}`}
     >
       <div
         className="
@@ -48,7 +49,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
             "
         >
           <Image
-            src={`/images/${proj.img}.png`}
+            src={`/images/${proj.img}`}
             alt={`${proj.name} screenshot`}
             layout="fill"
             objectFit="contain"
@@ -95,7 +96,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
               text-text-main
               "
           >
-            {proj.name}
+            {proj.title}
           </h2>
           <hr
             className="
