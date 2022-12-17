@@ -1,15 +1,15 @@
-interface CursorSettingsParams {
+export interface CursorSettingsParams {
   variant: string;
   title: string | React.ReactNode;
 }
 
-interface CursorContextParams {
+export interface CursorContextParams {
   cursorSettings: CursorSettingsParams;
   projectCursor: () => void;
   defaultCursor: () => void;
-  otherProjectCursor: (title: string) => void;
+  otherProjectCursor: () => void;
 }
 
-interface ContextProviderProps {
+export interface ContextProviderProps {
   children: React.ReactNode;
 }

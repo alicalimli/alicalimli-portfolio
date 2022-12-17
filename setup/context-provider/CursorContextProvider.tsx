@@ -1,14 +1,19 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { BiLinkExternal } from "react-icons/bi";
+import {
+  CursorContextParams,
+  ContextProviderProps,
+  CursorSettingsParams,
+} from "./contextInterfaces";
 
-export const CursorContext = React.createContext<CursorContextParams>({
+export const CursorContext = createContext<CursorContextParams>({
   cursorSettings: {
     variant: "default",
     title: "",
   },
   projectCursor: () => null,
   defaultCursor: () => null,
-  otherProjectCursor: (title: string) => null,
+  otherProjectCursor: () => null,
 });
 
 const CursorContextProvider = ({ children }: ContextProviderProps) => {
