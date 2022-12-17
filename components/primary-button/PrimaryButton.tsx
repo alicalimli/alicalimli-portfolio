@@ -16,7 +16,7 @@ const PrimaryButton = ({
 }: PrimaryButtonProps) => {
   const getBtnTypeClass = () => {
     if (type === "outline") {
-      return "bg-transparent border-muted-secondary";
+      return "bg-transparent border-muted-secondary/30";
     }
     if (type === "solid") {
       return "bg-accent-primary border-accent-primary";
@@ -68,10 +68,10 @@ const PrimaryButton = ({
           h-full
           w-full
           place-items-center
-          bg-accent-tinted
           text-[#fff]
           duration-400
           ease-in-out
+          bg-accent-tinted
           group-hover:top-0
           group-hover:opacity-100
         `}

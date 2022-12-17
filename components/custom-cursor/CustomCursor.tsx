@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { useEffect, useState } from "react";
-import { useCursorContext } from "../../setup/context-provider/ContextProvider";
+import { useCursorContext } from "../../hooks";
 
 const CustomCursor = () => {
   const [mousePos, setMousePos] = useState({
@@ -42,6 +42,19 @@ const CustomCursor = () => {
         mass: 0.3,
       },
     },
+    otherProject: {
+      width: 66,
+      height: 66,
+      top: mousePos.y,
+      left: mousePos.x,
+      x: "-50%",
+      y: "-60%",
+      scale: 1,
+      transition: {
+        type: "spring",
+        mass: 0.3,
+      },
+    },
   };
 
   return (
@@ -51,7 +64,7 @@ const CustomCursor = () => {
       className="
         pointer-events-none 
         fixed 
-        z-10 
+        z-30
         grid 
         h-28 w-28 
         place-items-center 

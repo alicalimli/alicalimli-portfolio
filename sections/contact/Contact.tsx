@@ -48,7 +48,7 @@ const Contact = () => {
             alt={"Ali Calimli's Profile Picture"}
           />
           <div>
-            <h3 className="fluid-md text-muted-main">Email</h3>
+            <h3 className="fluid-md text-muted-secondary">Email</h3>
             <TwLink
               className="text-lg text-white"
               href="mailto:alicalimli76@gmail.com"
@@ -57,7 +57,7 @@ const Contact = () => {
             </TwLink>
           </div>
           <div>
-            <h3 className="fluid-md text-muted-main">Socials</h3>
+            <h3 className="fluid-md text-muted-secondary">Socials</h3>
             <ul className="flex flex-col">{socials}</ul>
           </div>
         </div>

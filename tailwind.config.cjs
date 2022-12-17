@@ -27,8 +27,8 @@ module.exports = {
         "accent-shaded": "#1f7dcf",
         "bg-main": "#212529",
         "bg-secondary": "#2A3036",
-        "muted-main": "#ADB5BD",
-        "muted-secondary": "#868E96",
+        "muted-main": "#E6E6E6",
+        "muted-secondary": "#CCCCCC",
       },
     },
     colors: {
@@ -43,6 +43,9 @@ module.exports = {
       "muted-main": "#fff",
       "muted-secondary": "#fff",
     },
+  },
+  transitionProperty: {
+    scale: "scale",
   },
   plugins: [
     require("tailwind-theme-switcher"),

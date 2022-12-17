@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { ProjectCard, SpringyText } from "../../components";
-import { useCursorContext } from "../../setup/context-provider/ContextProvider";
+import { PrimaryButton, ProjectCard } from "../../components";
+import { useCursorContext } from "../../hooks";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const featuredProjectsArr = [
   {
@@ -33,23 +34,48 @@ const otherProjectsArr = [
     name: "Quizzical",
     role: "Development",
     link: "https://quizzical-ali.netlify.app/",
+    img: "quizzical.jpg",
   },
   {
     name: "Clipboard",
     role: "Development",
     link: "https://clipboard-ali.netlify.app/",
+    img: "clipboard.jpg",
   },
   {
     name: "Todo list",
     role: "Design & Development",
     link: "https://todo-list-ali.netlify.app/",
+    img: "todolist.jpg",
   },
 ];
 
 const Projects = () => {
-  const { projectCursor, defaultCursor } = useCursorContext();
+  const { defaultCursor, otherProjectCursor } = useCursorContext();
 
-  const otherProjMouseEnter = () => projectCursor("Visit");
+  const [imgPath, setImgPath] = useState("acmessenger");
+
+  const otherProjMouseEnter = (projImg: string) => {
+    setImgPath(projImg);
+    otherProjectCursor();
+  };
+
+  const [mousePos, setMousePos] = useState({
+    x: -100,
+    y: -100,
+  });
+
+  useEffect(() => {
+    // Returns function if hover is not supported
+    if (window.matchMedia("(hover: none)").matches) return;
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      setMousePos({ x, y });
+    });
+  }, []);
 
   const projectMouseLeave = () => defaultCursor();
 
@@ -59,17 +85,56 @@ const Projects = () => {
     </li>
   ));
 
+  const imgVariant = {
+    animate: {
+      top: mousePos.y,
+      left: mousePos.x,
+      x: "-50%",
+      y: "-60%",
+      transition: {
+        type: "spring",
+        mass: 0.3,
+      },
+    },
+  };
+
   const otherProjects = otherProjectsArr.map((proj) => (
     <li
       key={proj.name}
-      onMouseEnter={otherProjMouseEnter}
+      onMouseEnter={() => otherProjMouseEnter(proj.img)}
       onMouseLeave={projectMouseLeave}
       className="
         group 
-        border-t
-        border-white
       "
     >
+      <motion.div
+        variants={imgVariant}
+        animate={"animate"}
+        className={`
+          pointer-events-none
+          absolute
+          top-0
+          left-0
+        `}
+      >
+        <Image
+          src={`/images/${proj.img}`}
+          alt={""}
+          width={542}
+          height={542}
+          className={`
+            invisible
+            scale-50
+            opacity-0
+            duration-400
+            ease-in-out
+            group-hover:visible
+            group-hover:scale-100
+            group-hover:opacity-100
+          `}
+        />
+      </motion.div>
+
       <a
         rel="noopener noreferrer"
         target="_blank"
@@ -78,18 +143,21 @@ const Projects = () => {
           flex
           items-center
           gap-4
-          p-4
+          border-t
+          border-muted-secondary/20
+          p-4 
           py-8
-          duration-400 
+          text-muted-secondary/80
+          duration-400
           ease-in-out
-          text-white
-          group-hover:scale-105
-          group-hover:text-accent-tinted
+          group-hover:scale-x-105
+          group-hover:text-white
+          hover:border-white
         "
       >
         <h2
           className="
-            fluid-lg
+            fluid-2xl
           "
         >
           {proj.name}
@@ -107,18 +175,6 @@ const Projects = () => {
 
       <main className="section flex flex-col gap-8">
         <section className="flex flex-col gap-8">
-          <header
-            className="flex max-w-xl flex-col           
-            items-center
-            gap-2
-            text-center
-            md:items-start
-            md:text-left
-          "
-          >
-            <SpringyText className="justify-center" text="My Projects" />
-          </header>
-
           <ul
             className="
             grid 
@@ -134,6 +190,8 @@ const Projects = () => {
         <section className="mt-16">
           <ul className="flex flex-col">{otherProjects}</ul>
         </section>
+
+        <PrimaryButton name={"Contact Me"} className="mx-auto mt-16" />
       </main>
     </>
   );
