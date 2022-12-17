@@ -1,33 +1,10 @@
 import { PrimaryButton, ProjectCard } from "../../components";
 import React, { useEffect } from "react";
 import Link from "next/link";
-
-const featuredProjectsArr = [
-  {
-    name: "Moviematrix",
-    role: "Design & Development",
-    img: "moviematrix",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
-    tools: ["Javascript", "CSS", "HTML"],
-  },
-  {
-    name: "ACMessenger",
-    img: "acmessenger",
-    role: "Design & Development",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
-    tools: [
-      "React",
-      "Typescript",
-      "Firebase",
-      "TailwindCSS",
-      "Redux Toolkit",
-      "Framer Motion",
-    ],
-  },
-];
+import data from "../../data.json";
 
 const Projects = () => {
-  const featuredProjects = featuredProjectsArr.map((proj) => (
+  const featuredProjects = data.featuredProjects.map((proj) => (
     <li key={proj.name}>
       <ProjectCard proj={proj} />
     </li>
