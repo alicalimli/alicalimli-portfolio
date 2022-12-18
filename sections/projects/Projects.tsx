@@ -1,4 +1,4 @@
-import { PrimaryButton, ProjectCard } from "../../components";
+import { Navbar, PrimaryButton, ProjectCard, Section } from "../../components";
 import React, { useEffect } from "react";
 import Link from "next/link";
 import data from "../../data.json";
@@ -11,7 +11,8 @@ const Projects = () => {
   ));
 
   return (
-    <section className="section">
+    <Section className="flex flex-col gap-16">
+      <Navbar />
       <main
         className="
           flex 
@@ -34,7 +35,7 @@ const Projects = () => {
           <PrimaryButton name="Projects Archive" />
         </Link>
       </main>
-    </section>
+    </Section>
   );
 };
 

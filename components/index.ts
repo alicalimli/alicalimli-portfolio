@@ -8,6 +8,7 @@ import Layout from "./layout/Layout";
 import Portal from "./portal/Portal";
 import ProjectCard from "./project-card/ProjectCard";
 import Footer from "./footer/Footer";
+import Section from "./section/Section";
 
 export {
   CustomCursor,
@@ -20,4 +21,5 @@ export {
   ProjectCard,
   Portal,
   Layout,
+  Section,
 };

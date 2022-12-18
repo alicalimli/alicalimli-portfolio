@@ -1330,6 +1330,11 @@ tailwind-theme-switcher@^1.0.2:
   resolved "https://registry.yarnpkg.com/tailwind-theme-switcher/-/tailwind-theme-switcher-1.0.2.tgz#10259796199a4978961ac5ee0e30a967f328b11b"
   integrity sha512-/d2gGzQiWStssYnXztsaNtYwKpjt48skFAc8uHOb/aL5KWa7muQe2jp3CqmDDOQvB+Gs6HhQGnng+5/N8H1Azg==
 
+tailwindcss-fluid-spacing@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-fluid-spacing/-/tailwindcss-fluid-spacing-0.4.0.tgz#ac2a5d2afbab4c1fe7ee0a35f55dc085fab7ce71"
+  integrity sha512-ktvokYjL6d+J7f6TB5wC9Xybwnj6dtCPLiRF+N/YfSluj6y2JE1+hfg0/YCHqaBk7YK+fay7r9gx9EUQY2UPbg==
+
 tailwindcss@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.4.tgz#afe3477e7a19f3ceafb48e4b083e292ce0dc0250"

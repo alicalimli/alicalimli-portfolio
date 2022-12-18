@@ -3,7 +3,7 @@ import codingBoy from "../../public/lottie/95348-coding-boy.json";
 import React from "react";
 import { motion } from "framer-motion";
 import Lottie from "react-lottie";
-import { Chip, PrimaryButton, SpringyText } from "../../components";
+import { Chip, PrimaryButton, Section, SpringyText } from "../../components";
 import Link from "next/link";
 
 const myTools = [
@@ -33,7 +33,7 @@ const About = () => {
   // const navigate = useNavigate();
 
   return (
-    <section className="section">
+    <Section>
       <main className="flex items-center justify-center gap-4 md:justify-start">
         <header
           className="
@@ -75,7 +75,7 @@ const About = () => {
           <Lottie options={defaultOptions} />
         </motion.div>
       </main>
-    </section>
+    </Section>
   );
 };
 

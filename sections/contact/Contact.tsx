@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
-import { SpringyText } from "../../components";
+import { Section, SpringyText } from "../../components";
 import TwLink from "../../components/tw-link/TwLink";
 import Image from "next/image";
 
@@ -21,7 +21,7 @@ const Contact = () => {
   ));
 
   return (
-    <section className="section ">
+    <Section className="pb-12">
       <main className="flex gap-16">
         <div className="flex w-full flex-col gap-12">
           <header
@@ -39,7 +39,7 @@ const Contact = () => {
           </header>
           <ContactForm />
         </div>
-        <div className="hidden w-1/2 flex-col gap-4 lg:flex xl:w-1/4">
+        <div className="hidden w-1/2 flex-col gap-4 lg:flex">
           <Image
             src="/images/profile.jpeg"
             width={112}
@@ -62,7 +62,7 @@ const Contact = () => {
           </div>
         </div>
       </main>
-    </section>
+    </Section>
   );
 };
 

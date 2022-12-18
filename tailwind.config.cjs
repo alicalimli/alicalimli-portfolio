@@ -51,5 +51,6 @@ module.exports = {
     require("tailwind-theme-switcher"),
     require("tailwind-scrollbar")({ nocompatible: true }),
     require("tailwind-fluid-typography"),
+    require("tailwindcss-fluid-spacing"),
   ],
 };

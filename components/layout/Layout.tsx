@@ -35,8 +35,8 @@ const Layout = ({ children }) => {
       <main ref={scrollContainerRef} className=" h-screen  overflow-y-scroll">
         <HamburgerMenu showNavBtn={showNavBtn} setShowNavBtn={setShowNavBtn} />
         <CustomCursor />
-        <Navbar />
-        <div className="flex flex-col gap-16">{children}</div>
+        {pathname !== "/" && <Navbar />}
+        {children}
         <Footer />
       </main>
     </>

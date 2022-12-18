@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import Section from "../section/Section";
 import SpringyText from "../springy-text/SpringyText";
 import TwLink from "../tw-link/TwLink";
 
@@ -47,7 +48,7 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
   return (
     <>
       {pathname === "/" ? (
-        <nav className="section flex gap-4">
+        <nav className="flex gap-4">
           <div className="flex flex-col gap-2">
             <SpringyText text={Name} />
             <h1 className="max-w-xs  text-muted-main fluid-lg">
