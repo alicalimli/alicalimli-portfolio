@@ -16,7 +16,7 @@ const PrimaryButton = ({
 }: PrimaryButtonProps) => {
   const getBtnTypeClass = () => {
     if (type === "outline") {
-      return "bg-transparent border-muted-secondary/30";
+      return "bg-transparent border-muted-secondary/20";
     }
     if (type === "solid") {
       return "bg-accent-primary border-accent-primary";
@@ -43,7 +43,7 @@ const PrimaryButton = ({
           text-['#fff']
           duration-400
           ease-in-out
-          hover:border-accent-tinted 
+          hover:border-accent-tinted
           sm:p-6
           sm:px-12
       `}
@@ -52,7 +52,7 @@ const PrimaryButton = ({
         className={`
           text-[#fff]
           duration-400
-          ease-in-out 
+          ease-in-out
           group-hover:-translate-y-full
           group-hover:opacity-0
         `}
@@ -81,9 +81,9 @@ const PrimaryButton = ({
             ${type === "loading" ? "opacity-100" : "opacity-0"}
             absolute
             m-auto
-            animate-spin 
-            text-3xl 
-            text-[#fff] 
+            animate-spin
+            text-3xl
+            text-[#fff]
             duration-400
           `}
         />

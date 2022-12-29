@@ -81,7 +81,7 @@ const Projects = () => {
       onMouseEnter={() => otherProjMouseEnter(proj.img)}
       onMouseLeave={projectMouseLeave}
       className="
-        group 
+        group
       "
     >
       <motion.div
@@ -122,7 +122,7 @@ const Projects = () => {
           gap-4
           border-t
           border-muted-secondary/20
-          p-4 
+          p-4
           py-8
           text-muted-secondary/80
           duration-400
@@ -154,10 +154,10 @@ const Projects = () => {
         <Section className="flex flex-col gap-8">
           <ul
             className="
-            grid 
-            grid-cols-1 
-            gap-16 
-            md:grid-cols-2 
+            grid
+            grid-cols-1
+            gap-16
+            md:grid-cols-2
           "
           >
             {featuredProjects}

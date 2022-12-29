@@ -25,7 +25,7 @@ const Contact = () => {
       <main className="flex gap-16">
         <div className="flex w-full flex-col gap-12">
           <header
-            className="flex flex-col items-center           
+            className="flex flex-col items-center
             gap-2
             text-center
             md:items-start

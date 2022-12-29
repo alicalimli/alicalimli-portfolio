@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Image from "next/image";
 import data from "../../data.json";
-import { SpringyText } from "../../components";
+import { Section, SpringyText, PrimaryButton } from "../../components";
 
 const Project = () => {
   const router = useRouter();
@@ -12,27 +12,56 @@ const Project = () => {
 
   const project = projectsData.find((proj) => proj.name === pid);
 
+  const images = project?.images.map((img) => (
+    <div key={img} className="relative overflow-hidden rounded-md">
+      <Image alt="" src={`/images/${img}`} width={1500} height={1500} />
+    </div>
+  ));
+
   return (
-    <>
-      <Head>
-        <title>{pid}</title>
-      </Head>
-      <main className="section full flex flex-col gap-4">
-        <section className="section">
-          <div className="relative overflow-hidden rounded-3xl">
+    project && (
+      <>
+        <Head>
+          <title>{project.title}</title>
+        </Head>
+        <main>
+          <Section type="narrow" className="flex flex-col gap-8">
+            <header className="flex flex-col gap-4">
+              <SpringyText
+                text={project.title}
+                className="border-b border-muted-secondary/20 pb-4 text-white "
+              />
+              <p className="text-muted-main fluid-lg">{project.desc}</p>
+            </header>
             <Image
               alt=""
-              src={`/images/${project?.img}`}
-              width={1560}
-              height={1560}
+              src={`/images/${project.banner}`}
+              width={1500}
+              height={1500}
             />
-            <div className="absolute top-0 left-0 flex h-full w-full items-center justify-center bg-[#111]/60 font-bold text-white fluid-5xl">
-              {project.title}
+            {images}
+            <div className="mx-auto mt-12 flex gap-4">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className=""
+                href={project.link}
+              >
+                <PrimaryButton name="Visit Website" />
+              </a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className=""
+                href={project.sourceCode}
+              >
+                <PrimaryButton name="Source Code" />
+              </a>
             </div>
-          </div>
-        </section>
-      </main>
-    </>
+          </Section>
+        </main>
+      </>
+    )
   );
 };
 

@@ -32,15 +32,28 @@
       "name": "moviematrix",
       "id": 1,
       "role": "Design & Development",
-      "img": "moviematrix-wide.jpg",
+      "sourceCode": "https://github.com/alicalimli/movie-matrix-app",
+      "link": "https://moviematrix.netlify.app",
+      "images": [
+        "moviematrix-1.jpg",
+        "moviematrix-2.jpg",
+        "moviematrix-3.jpg",
+        "moviematrix-4.jpg",
+        "moviematrix-5.jpg",
+        "moviematrix-6.jpg"
+      ],
+      "banner": "moviematrix-wide.jpg",
       "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
       "tools": ["Javascript", "CSS", "HTML"]
     },
     {
       "title": "ACMessenger",
       "name": "acmessenger",
+      "sourceCode": "https://github.com/alicalimli/ac-messenger",
+      "link": "https://ac-messenger-p.web.app/",
       "id": 2,
-      "img": "acmessenger-wide.jpg",
+      "images": [],
+      "banner": "acmessenger-wide.jpg",
       "role": "Design & Development",
       "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
       "tools": [
