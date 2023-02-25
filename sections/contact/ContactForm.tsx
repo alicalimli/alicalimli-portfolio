@@ -50,7 +50,7 @@ const ContactForm = () => {
     const message = e.target[3].value;
 
     try {
-      const sendMessage = await fetch(
+      await fetch(
         "https://formsubmit.co/ajax/779a1f0fbd51622e61c543e0ced860ab",
         {
           method: "POST",
@@ -66,6 +66,7 @@ const ContactForm = () => {
           }),
         }
       );
+      
       setIsSending(false);
       router.push("/success");
     } catch (e) {
@@ -110,7 +111,7 @@ const ContactForm = () => {
         <textarea
           id="message"
           required
-          rows={5}
+          rows={8}
           placeholder=" "
           cols={33}
           className={inputClass}
@@ -118,10 +119,10 @@ const ContactForm = () => {
         <span className={spanLabelClass}>Message</span>
       </label>
       <PrimaryButton
+        btnType="submit"
         name={"Send Message"}
         type={isSending ? "loading" : "solid"}
-        className="mx-auto mt-8 md:mx-0 md:ml-auto"
-        onClick={() => console.log("")}
+        className="mx-auto  md:mx-0 md:ml-auto"
       />
     </form>
   );

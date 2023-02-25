@@ -5,12 +5,14 @@ interface PrimaryButtonProps {
   name: string;
   onClick?: () => void;
   className?: string;
+  btnType: "button" | "submit",
   type?: "solid" | "outline" | "loading";
 }
 
 const PrimaryButton = ({
   className,
   type = "outline",
+  btnType = "button",
   name,
   onClick,
 }: PrimaryButtonProps) => {
@@ -29,6 +31,7 @@ const PrimaryButton = ({
   return (
     <button
       onClick={() => onClick?.()}
+      type={btnType}
       className={`
           ${getBtnTypeClass()}
           ${className}
