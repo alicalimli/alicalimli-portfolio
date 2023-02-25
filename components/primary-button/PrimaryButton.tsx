@@ -5,7 +5,7 @@ interface PrimaryButtonProps {
   name: string;
   onClick?: () => void;
   className?: string;
-  btnType: "button" | "submit",
+  btnType?: "button" | "submit";
   type?: "solid" | "outline" | "loading";
 }
 
