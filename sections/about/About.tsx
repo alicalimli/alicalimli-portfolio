@@ -50,10 +50,11 @@ const About = () => {
         >
           <SpringyText className="justify-center" text="A Little About Me" />
           <p className="text-muted-main fluid-lg">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero illo
-            necessitatibus pariatur! Beatae earum recusandae, id magnam hic
-            error dicta quaerat officiis unde similique ad rem? Doloribus
-            dignissimos natus quibusdam!
+            Focused on building awesome and high-quality websites that are also
+            visually appealing and easy to use. I have a strong foundation in
+            HTML, CSS, and JavaScript, and I'm proficient in using React. I love
+            learning something new and I'm always looking to improve my skills
+            and stay up-to-date on the latest front-end technologies. <br />
           </p>
 
           <Link href="/about" className="mt-8 w-fit">

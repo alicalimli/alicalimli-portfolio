@@ -6,7 +6,7 @@
       "id": 1,
       "role": "Design & Development",
       "img": "moviematrix.png",
-      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
+      "desc": "A Fullstack Chatapp that I've built to learn more about React and its popular libraries like redux, and also took the opportunity to learn about BAAS like Firebase.",
       "tools": ["Javascript", "CSS", "HTML"]
     },
     {
@@ -15,7 +15,7 @@
       "id": 2,
       "img": "acmessenger.png",
       "role": "Design & Development",
-      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex natus dolorum alias, nisi similique voluptatibus maiores, facilis autem ducimus ipsam velit quasi quisquam hic? Debitis placeat eligendi fugiat quo sunt.",
+      "desc": "A Vanilla JS Project that I have built to deepen my knowledge about CSS and JavaScript and practice consuming API’s as well.",
       "tools": [
         "React",
         "Typescript",
