@@ -13,6 +13,7 @@ const Projects = () => {
   return (
     <Section className="flex flex-col gap-16">
       <Navbar />
+
       <main
         className="
           flex 

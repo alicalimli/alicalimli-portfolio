@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { PrimaryButton, ProjectCard, Section } from "../../components";
+import {
+  PrimaryButton,
+  ProjectCard,
+  Section,
+  SpringyText,
+} from "../../components";
 import { useCursorContext } from "../../hooks";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -150,8 +155,9 @@ const Projects = () => {
         <title>Projects</title>
       </Head>
 
-      <main className="flex flex-col gap-8">
+      <main className="flex flex-col gap-4">
         <Section className="flex flex-col gap-8">
+          <SpringyText className="justify-center" text="Featured Projects" />
           <ul
             className="
             grid 
@@ -165,6 +171,7 @@ const Projects = () => {
         </Section>
 
         <Section>
+          <SpringyText className="mb-8 justify-center" text="Other Projects" />
           <ul className="flex flex-col">{otherProjects}</ul>
         </Section>
 

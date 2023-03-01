@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { SpringyText } from "../components";
 
 const About = () => {
   return (
@@ -7,7 +8,7 @@ const About = () => {
       <Head>
         <title>About</title>
       </Head>
-      <div>About</div>
+      <SpringyText className="justify-center" text="Coming soon...." />
     </>
   );
 };
