@@ -38,8 +38,8 @@ const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
             my-8
             mx-4
             flex
-            h-20
-            w-20
+            h-16
+            w-16
             flex-col
             items-center
             justify-center
@@ -47,6 +47,8 @@ const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
             overflow-hidden
             rounded-full
             bg-[#111]
+            sm:h-20
+            sm:w-20
           "
           >
             <motion.div
@@ -54,10 +56,10 @@ const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
                 showMenu ? { rotate: "45deg", y: "10px" } : { rotate: "0deg" }
               }
               className="
-              h-0.5
-              w-8
-              bg-muted-secondary
-            "
+                  h-0.5
+                  w-8
+                  bg-muted-secondary
+                "
               transition={{
                 duration: 0.45,
                 ease: "easeInOut",
@@ -67,9 +69,9 @@ const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
               animate={showMenu ? { width: 0 } : { width: "2rem" }}
               initial={{ width: "2rem" }}
               className="
-              h-0.5
-              bg-muted-secondary
-            "
+                h-0.5
+                bg-muted-secondary
+              "
               transition={{
                 duration: 0.3,
                 ease: "easeInOut",
@@ -80,10 +82,10 @@ const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
                 showMenu ? { rotate: "-45deg", y: "-10px" } : { rotate: "0deg" }
               }
               className="
-              h-0.5
-              w-8
-              bg-muted-secondary
-            "
+                h-0.5
+                w-8
+                bg-muted-secondary
+              "
               transition={{
                 duration: 0.3,
                 ease: "easeInOut",

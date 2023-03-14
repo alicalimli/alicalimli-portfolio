@@ -8,21 +8,23 @@
   font-family: "Poppins", sans-serif;
 }
 
-::-webkit-scrollbar {
-  width: 18px;
-}
+@media (hover: hover) {
+  ::-webkit-scrollbar {
+    width: 18px;
+  }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-  margin-block: 0.5rem;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 0.5rem;
+  }
 
-::-webkit-scrollbar-thumb {
-  border: 6px solid #212529;
-  background: #868e96;
-  border-radius: 100vmax;
-}
+  ::-webkit-scrollbar-thumb {
+    border: 6px solid #212529;
+    background: #868e96;
+    border-radius: 100vmax;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #adb5bd;
+  ::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+  }
 }
