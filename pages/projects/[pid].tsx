@@ -6,15 +6,15 @@ import data from "../../data.json";
 import { SpringyText } from "../../components";
 
 const Project = () => {
-  const router = useRouter();
-  const projectsData = data.projectsData;
-  const { pid } = router.query;
+  // const router = useRouter();
+  // const projectsData = data.projectsData;
+  // const { pid } = router.query;
 
-  const project = projectsData.find((proj) => proj.name === pid);
+  // const project = projectsData.find((proj) => proj.name === pid);
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{pid}</title>
       </Head>
       <main className="section full flex flex-col gap-4">
@@ -31,7 +31,7 @@ const Project = () => {
             </div>
           </div>
         </section>
-      </main>
+      </main> */}
     </>
   );
 };
