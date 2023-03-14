@@ -3,24 +3,29 @@ import { Chip } from "../../components";
 import { useCursorContext } from "../../hooks";
 import Link from "next/link";
 import Image from "next/image";
+import { AiOutlineGithub } from "react-icons/ai";
 
 interface ProjectCardProps {
   proj: ProjectProps;
 }
 
 const ProjectCard = ({ proj }: ProjectCardProps) => {
-  const { projectCursor, defaultCursor } = useCursorContext();
+  const { projectCursor, defaultCursor, githubProjectCursor } =
+    useCursorContext();
 
   const projectMouseEnter = () => projectCursor();
 
   const projectMouseLeave = () => defaultCursor();
+
   return (
-    <Link
+    <a
       onClick={() => projectMouseLeave()}
       onMouseEnter={projectMouseEnter}
       onMouseLeave={projectMouseLeave}
+      rel="noopener noreferrer"
+      target="_blank"
       className="group flex flex-col gap-4 "
-      href={`projects/${proj.name}`}
+      href={proj.deployed_link}
     >
       <div
         className="
@@ -73,24 +78,39 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
           />
         </div>
         <div className="flex flex-col">
-          <span
-            className="
+          <div className="flex items-center">
+            <div className="flex flex-col">
+              {" "}
+              <span
+                className="
                 text-sm  
                 text-muted-secondary
               "
-          >
-            {proj.role}
-          </span>
-          <h2
-            className="
-              break-all 
-              text-4xl 
-              font-bold 
-              text-text-main
-              "
-          >
-            {proj.name}
-          </h2>
+              >
+                {proj.role}
+              </span>
+              <h2
+                className="
+                  break-all 
+                  text-4xl 
+                  font-bold 
+                  text-text-main
+                  "
+              >
+                {proj.name}
+              </h2>
+            </div>
+            <div className="ml-auto"></div>
+            <a
+              onMouseEnter={() => githubProjectCursor()}
+              onMouseLeave={() => projectCursor()}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={proj.github_link}
+            >
+              <AiOutlineGithub className="text-4xl text-white" />
+            </a>
+          </div>
           <hr
             className="
                 my-4 
@@ -101,7 +121,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
         </div>
       </div>
       <Chip texts={proj.tools} />
-    </Link>
+    </a>
   );
 };
 

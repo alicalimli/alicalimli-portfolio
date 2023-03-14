@@ -8,6 +8,7 @@ export interface CursorContextParams {
   projectCursor: () => void;
   defaultCursor: () => void;
   otherProjectCursor: () => void;
+  githubProjectCursor: () => void;
 }
 
 export interface ContextProviderProps {

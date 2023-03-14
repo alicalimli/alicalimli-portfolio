@@ -155,7 +155,9 @@ const Projects = () => {
         <title>Projects</title>
       </Head>
 
-      <main className="flex flex-col gap-4">
+      <SpringyText className="justify-center" text="Coming soon...." />
+
+      {/* <main className="flex flex-col gap-4">
         <Section className="flex flex-col gap-8">
           <SpringyText className="justify-center" text="Featured Projects" />
           <ul
@@ -175,8 +177,8 @@ const Projects = () => {
           <ul className="flex flex-col">{otherProjects}</ul>
         </Section>
 
-        <PrimaryButton name={"Contact Me"} className="mx-auto" />
-      </main>
+        <PrimaryButton name={"Contact Me"} className="mx-auto" /> 
+      </main> */}
     </>
   );
 };

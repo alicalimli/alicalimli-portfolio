@@ -6,5 +6,7 @@ interface ProjectProps {
   tools: string[];
   role: string;
   images: string[];
+  github_link: string;
+  deployed_link: string;
   type: "featured" | "others";
 }

@@ -5,6 +5,7 @@ import {
   ContextProviderProps,
   CursorSettingsParams,
 } from "./contextInterfaces";
+import { AiOutlineGithub } from "react-icons/ai";
 
 export const CursorContext = createContext<CursorContextParams>({
   cursorSettings: {
@@ -14,6 +15,7 @@ export const CursorContext = createContext<CursorContextParams>({
   projectCursor: () => null,
   defaultCursor: () => null,
   otherProjectCursor: () => null,
+  githubProjectCursor: () => null,
 });
 
 const CursorContextProvider = ({ children }: ContextProviderProps) => {
@@ -34,6 +36,12 @@ const CursorContextProvider = ({ children }: ContextProviderProps) => {
       title: <BiLinkExternal className="text-2xl" />,
     });
 
+  const githubProjectCursor = () =>
+    setCursorSettings({
+      variant: "otherProject",
+      title: <AiOutlineGithub className="text-4xl" />,
+    });
+
   const defaultCursor = () =>
     setCursorSettings({
       variant: "default",
@@ -47,6 +55,7 @@ const CursorContextProvider = ({ children }: ContextProviderProps) => {
         projectCursor,
         defaultCursor,
         otherProjectCursor,
+        githubProjectCursor,
       }}
     >
       {children}
