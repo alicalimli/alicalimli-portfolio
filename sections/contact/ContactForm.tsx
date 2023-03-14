@@ -15,6 +15,7 @@ const inputClass = `
       border-muted-secondary/30
       text-text-main  
       focus-within:border-white
+      resize-none
       `;
 
 const spanLabelClass = `
@@ -66,7 +67,7 @@ const ContactForm = () => {
           }),
         }
       );
-      
+
       setIsSending(false);
       router.push("/success");
     } catch (e) {

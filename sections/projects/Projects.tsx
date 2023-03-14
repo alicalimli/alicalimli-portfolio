@@ -1,10 +1,21 @@
 import { Navbar, PrimaryButton, ProjectCard, Section } from "../../components";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import data from "../../data.json";
+import supabase from "../../config/supabaseClient";
 
 const Projects = () => {
-  const featuredProjects = data.featuredProjects.map((proj) => (
+  const [projects, setProjects] = useState<ProjectProps[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const { data } = await supabase.from("projects").select();
+
+      data && setProjects(data as any);
+    };
+    fetchProjects();
+  }, []);
+
+  const featuredProjects = projects.map((proj) => (
     <li key={proj.name}>
       <ProjectCard proj={proj} />
     </li>

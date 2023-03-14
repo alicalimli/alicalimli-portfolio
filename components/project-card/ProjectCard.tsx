@@ -5,14 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface ProjectCardProps {
-  proj: {
-    title: string;
-    name: string;
-    role: string;
-    desc: string;
-    img: string;
-    tools: string[];
-  };
+  proj: ProjectProps;
 }
 
 const ProjectCard = ({ proj }: ProjectCardProps) => {
@@ -21,7 +14,6 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
   const projectMouseEnter = () => projectCursor();
 
   const projectMouseLeave = () => defaultCursor();
-
   return (
     <Link
       onClick={() => projectMouseLeave()}
@@ -49,7 +41,8 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
             "
         >
           <Image
-            src={`/images/${proj.img}`}
+            unoptimized
+            src={proj.images[0]}
             alt={`${proj.name} screenshot`}
             layout="fill"
             objectFit="contain"
@@ -96,7 +89,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
               text-text-main
               "
           >
-            {proj.title}
+            {proj.name}
           </h2>
           <hr
             className="
@@ -104,7 +97,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
                 border-muted-secondary/50
               "
           />
-          <p className="text-lg text-muted-main">{proj.desc}</p>
+          <p className="text-lg text-muted-main">{proj.description}</p>
         </div>
       </div>
       <Chip texts={proj.tools} />

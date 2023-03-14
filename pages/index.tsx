@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { ProjectsSection, AboutSection, ContactSection } from "../sections";
 
 const Home = () => {
