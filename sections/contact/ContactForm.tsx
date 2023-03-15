@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import React from "react";
 import { PrimaryButton } from "../../components";
 import { useRouter } from "next/router";
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const inputClass = `
       peer 
@@ -36,6 +41,7 @@ const spanLabelClass = `
 const ContactForm = () => {
   const router = useRouter();
 
+  const formRef = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -69,7 +75,16 @@ const ContactForm = () => {
       );
 
       setIsSending(false);
-      router.push("/success");
+      formRef?.current?.reset();
+      MySwal.fire({
+        background: "#222",
+        color: "#fff",
+        title: <strong>Message Sent!</strong>,
+        html: <p>I will get back to you soon.</p>,
+        confirmButtonText: "Close",
+        confirmButtonColor: "#1f7dcf",
+        icon: "success",
+      });
     } catch (e) {
       setIsSending(false);
       setErrorMsg(e.message);
@@ -77,7 +92,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={submitForm} className="flex flex-col gap-12">
+    <form ref={formRef} onSubmit={submitForm} className="flex flex-col gap-12">
       <label htmlFor="name" className="relative text-text-main">
         <input
           type="text"
