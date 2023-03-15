@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import TwLink from "../../components/tw-link/TwLink";
 
 const MySwal = withReactContent(Swal);
 
@@ -88,6 +89,22 @@ const ContactForm = () => {
     } catch (e) {
       setIsSending(false);
       setErrorMsg(e.message);
+      MySwal.fire({
+        background: "#222",
+        color: "#fff",
+        title: <strong>Message could not be sent.</strong>,
+        html: (
+          <p>
+            Please try again or send me an email directly at:{" "}
+            <TwLink className="text-lg" href="mailto:alicalimli76@gmail.com">
+              alicalimli76@gmail.com
+            </TwLink>
+          </p>
+        ),
+        confirmButtonText: "Close",
+        confirmButtonColor: "#1f7dcf",
+        icon: "error",
+      });
     }
   };
 
