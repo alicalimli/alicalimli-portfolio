@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 import { Section, SpringyText } from "../../components";
 import TwLink from "../../components/tw-link/TwLink";

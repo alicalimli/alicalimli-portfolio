@@ -51,8 +51,9 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
         <nav className="flex gap-4">
           <div className="flex flex-col gap-2">
             <SpringyText text={Name} />
-            <h1 className="max-w-xs  text-muted-main fluid-lg">
-              Web Developer that focuses on front-end development
+            <h1 className="max-w-md  text-muted-main fluid-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              vel.
             </h1>
           </div>
           {navLinks}
