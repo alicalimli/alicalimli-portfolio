@@ -1,68 +1,117 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import React from "react";
+import React, { useRef, useState } from "react";
 
 interface PrimaryButtonProps {
   name: string;
   onClick?: () => void;
   className?: string;
   btnType?: "button" | "submit";
-  type?: "solid" | "outline" | "loading";
+  type?: "solid" | "outline" | "loading" | "default";
 }
 
 const PrimaryButton = ({
   className,
-  type = "outline",
+  type = "default",
   btnType = "button",
   name,
   onClick,
 }: PrimaryButtonProps) => {
+  const btnFillRef = useRef<HTMLDivElement>(null);
+
   const getBtnTypeClass = () => {
+    if (type === "default") {
+      return "border-none bg-bg-secondary";
+    }
     if (type === "outline") {
-      return "bg-transparent border-muted-secondary/30";
+      return "bg-transparent border border-muted-secondary/30";
     }
     if (type === "solid") {
-      return "bg-accent-primary border-accent-primary";
+      return "bg-accent-primary border border-accent-primary";
     }
     if (type === "loading") {
-      return "border-accent-tinted";
+      return "border-none bg-accent-primary";
     }
+  };
+
+  const animateBtnFill = (btnFill, translateY, duration) => {
+    requestAnimationFrame(() => {
+      btnFill.animate(
+        {
+          transform: `translate(-50%, ${translateY}%)`,
+        },
+        { duration, fill: "forwards", easing: "ease" }
+      );
+    });
+  };
+
+  const onMouseEnter = () => {
+    animateBtnFill(btnFillRef.current, 50, 0);
+
+    animateBtnFill(btnFillRef.current, -50, 850);
+  };
+
+  const onMouseLeave = () => {
+    animateBtnFill(btnFillRef.current, -150, 850);
   };
 
   return (
     <button
       onClick={() => onClick?.()}
       type={btnType}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={`
           ${getBtnTypeClass()}
           ${className}
-          group
           relative
-          w-fit cursor-pointer
-          overflow-hidden
+          cursor-pointer overflow-hidden
           rounded-full
-          border
           p-5
           px-10
           text-['#fff']
           duration-400
           ease-in-out
+          hover:scale-105
           hover:border-accent-tinted 
           sm:p-6
           sm:px-12
       `}
     >
-      <p
-        className={`
-          text-[#fff]
-          duration-400
-          ease-in-out 
-          group-hover:-translate-y-full
-          group-hover:opacity-0
-        `}
-      >
-        {name}
-      </p>
       <div
+        ref={btnFillRef}
+        className={`
+            absolute 
+            top-1/2 left-1/2 h-[200%] w-[150%] 
+            -translate-x-1/2  translate-y-1/2
+            rounded-[60%] p-4 bg-accent-tinted
+          `}
+      />
+
+      <div className="relative z-10">
+        <AiOutlineLoading3Quarters
+          className={`
+            ${type === "loading" ? "opacity-100" : "opacity-0"}
+            absolute
+            inset-0
+            m-auto
+            animate-spin 
+            text-3xl 
+            text-[#fff] 
+            duration-400
+          `}
+        />
+
+        <span
+          className={`
+            duration-400
+            text-white
+            ${type === "loading" ? "opacity-0" : "opacity-100"}
+          `}
+        >
+          {name}
+        </span>
+      </div>
+      {/* <div
         className={`
         ${type === "loading" ? "top-0 opacity-100" : "top-full opacity-0"}
           absolute
@@ -98,7 +147,7 @@ const PrimaryButton = ({
         >
           {name}
         </span>
-      </div>
+      </div> */}
     </button>
   );
 };
