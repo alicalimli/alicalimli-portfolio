@@ -40,7 +40,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
               relative 
               inline-block 
               h-72 w-full 
-              rounded-md 
+              rounded-3xl
               bg-bg-secondary 
               sm:h-96
             "
@@ -52,8 +52,7 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
             layout="fill"
             objectFit="contain"
             className="
-                  h-full 
-                  w-full 
+                  rounded-2xl
                   px-6 py-12 
                   duration-400
                   ease-in-out
@@ -111,13 +110,8 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
               <AiOutlineGithub className="text-4xl text-white" />
             </a>
           </div>
-          <hr
-            className="
-                my-4 
-                border-muted-secondary/50
-              "
-          />
-          <p className="text-lg text-muted-main">{proj.description}</p>
+
+          <p className="mt-4 text-lg text-muted-main">{proj.description}</p>
         </div>
       </div>
       <Chip texts={proj.tools} />
