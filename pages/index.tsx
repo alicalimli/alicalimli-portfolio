@@ -1,6 +1,11 @@
 import Head from "next/head";
 import React from "react";
-import { ProjectsSection, AboutSection, ContactSection } from "../sections";
+import {
+  ProjectsSection,
+  AboutSection,
+  ContactSection,
+  BlogsSection,
+} from "../sections";
 
 const Home = () => {
   return (
@@ -24,6 +29,7 @@ const Home = () => {
         <meta property="og:type" content="website" />
       </Head>
       <ProjectsSection />
+      <BlogsSection />
       <AboutSection />
       <ContactSection />
     </>

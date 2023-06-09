@@ -9,6 +9,7 @@ import Portal from "./portal/Portal";
 import ProjectCard from "./project-card/ProjectCard";
 import Footer from "./footer/Footer";
 import Section from "./section/Section";
+import BlogCard from "./blog-card/BlogCard";
 
 export {
   CustomCursor,
@@ -22,4 +23,5 @@ export {
   Portal,
   Layout,
   Section,
+  BlogCard,
 };

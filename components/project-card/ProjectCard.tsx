@@ -39,10 +39,9 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
           className="
               relative 
               inline-block 
-              h-72 w-full 
+              aspect-[4/3]
               rounded-3xl
               bg-bg-secondary 
-              sm:h-96
             "
         >
           <Image
