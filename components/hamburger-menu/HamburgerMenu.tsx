@@ -3,6 +3,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import NavigationMenu from "./NavigationMenu";
 import { Portal } from "../../components";
+import { useRouter } from "next/router";
 
 const navBtnVariant = {
   initial: { scale: 0 },
@@ -15,6 +16,10 @@ interface HamburgerMenuProps {
 }
 
 const HamburgerMenu = ({ showNavBtn, setShowNavBtn }: HamburgerMenuProps) => {
+  const { pathname } = useRouter();
+
+  if (pathname === "/visual-content-handbook") return <></>;
+
   const [showMenu, setShowMenu] = useState(false);
 
   const navBtnHandler = () => setShowMenu((state: boolean) => !state);

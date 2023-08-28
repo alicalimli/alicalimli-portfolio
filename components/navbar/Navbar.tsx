@@ -45,6 +45,8 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
     </ul>
   );
 
+  if (pathname === "/visual-content-handbook") return <></>;
+
   return (
     <>
       {pathname === "/" ? (

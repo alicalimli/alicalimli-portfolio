@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,15 @@
 
 * {
   font-family: "Poppins", sans-serif;
+}
+
+main {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+#visual-handbook-page {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (hover: hover) {
@@ -19,12 +28,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    border: 6px solid #212529;
-    background: #868e96;
+    border: 6px solid #111;
+    background: #333;
     border-radius: 100vmax;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #adb5bd;
+    background: #666;
   }
 }

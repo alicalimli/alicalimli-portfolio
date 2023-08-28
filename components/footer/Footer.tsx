@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import TwLink from "../tw-link/TwLink";
 import React from "react";
 
@@ -9,6 +10,8 @@ const socialsArr = [
 ];
 
 const Footer = () => {
+  const { pathname } = useRouter();
+
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
       <TwLink className="text-sm text-white" href={social.link}>
@@ -16,6 +19,8 @@ const Footer = () => {
       </TwLink>
     </li>
   ));
+
+  if (pathname === "/visual-content-handbook") return <></>;
 
   return (
     <footer
