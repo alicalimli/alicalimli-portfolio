@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineTwitter, AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 const linksArray = [
@@ -41,6 +41,36 @@ const previewsArray = [
 ];
 
 const index = () => {
+  const [mousePos, setMousePos] = useState({
+    x: -100,
+    y: -100,
+  });
+
+  const blobRef = useRef<HTMLDivElement>(null);
+  const blurRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Returns function if hover is not supported
+    if (window.matchMedia("(hover: none)").matches) return;
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      if (!blobRef?.current || !blurRef?.current) return;
+
+      blobRef.current.animate(
+        {
+          left: `${x}px`,
+          top: `${y}px`,
+        },
+        { duration: 3000, fill: "forwards" }
+      );
+
+      setMousePos({ x, y });
+    });
+  }, []);
+
   const renderPreviews = previewsArray.map(
     ({ src, title, type, description }, index) => {
       const isEven = index % 2 === 0;
@@ -90,106 +120,111 @@ const index = () => {
   ));
 
   return (
-    <div
-      id="visual-handbook-page"
-      className="mx-auto flex max-w-[1200px] flex-col justify-center px-vw-12"
-    >
-      <nav className="mx-auto flex w-full py-8">
-        <figure className="flex items-center gap-4">
-          <img src="/images/blue-profile.png" className="h-16 w-16" />
-          <figcaption className="fluid-lg">Ali Calimli</figcaption>
-        </figure>
+    <>
+      {" "}
+      <div ref={blobRef} id="blob" />
+      <div ref={blurRef} id="blur" />
+      <div
+        id="visual-handbook-page"
+        className="mx-auto flex max-w-[1200px] flex-col justify-center px-vw-12"
+      >
+        <nav className="mx-auto flex w-full py-8">
+          <figure className="flex items-center gap-4">
+            <img src="/images/blue-profile.png" className="h-16 w-16" />
+            <figcaption className="fluid-lg">Ali Calimli</figcaption>
+          </figure>
 
-        <div className="ml-auto flex items-center gap-4">
-          <a className="" href="#explore-section">
-            Explore
-          </a>
-          <a className="flex items-center justify-center rounded-full p-3 px-6 bg-accent-primary">
-            Join the waitlist
-          </a>
-        </div>
-      </nav>
-
-      <main className="">
-        <header className="mx-auto mt-20 flex max-w-3xl flex-col items-center justify-center gap-2 text-center ">
-          <h1 className=" text-5xl font-semibold ">
-            <span className="text-accent-primary">Learn how to</span> create
-            attractive visuals that people love
-          </h1>
-          <p className=" mb-4 opacity-90 fluid-lg">
-            A guide on how I make my web development visuals that I share
-            online, you can check out every visual I made{" "}
-            <a
-              rel="noopener noreferrer"
-              href="https://www.webdevvisuals.com/visuals"
-              target="_blank"
-              className="text-underline text-accent-primary"
-            >
-              here
+          <div className="ml-auto flex items-center gap-4">
+            <a className="" href="#explore-section">
+              Explore
             </a>
-          </p>
-          <iframe
-            className="mx-auto  w-[600px]"
-            src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
-            data-test-id="beehiiv-embed"
-            height="52"
-            frameBorder="0"
-            scrolling="no"
-            style={{
-              margin: 0,
-              borderRadius: "0px !important",
-              backgroundColor: "transparent",
-            }}
-          ></iframe>
-        </header>
+            <a className="flex items-center justify-center rounded-full p-3 px-6 bg-accent-primary">
+              Join the waitlist
+            </a>
+          </div>
+        </nav>
 
-        <div
-          id="explore-section"
-          className="mx-auto mt-24 flex max-w-4xl flex-col gap-8"
-        >
-          <header className="mx-auto mb-8 text-center">
-            <h2 className="text-4xl font-semibold">What you'll learn</h2>
-            <p className="text-lg opacity-90">
-              The 3 types of visuals I distribute
+        <main className="">
+          <header className="mx-auto mt-20 flex max-w-3xl flex-col items-center justify-center gap-2 text-center ">
+            <h1 className=" text-5xl font-semibold ">
+              <span className="text-accent-primary">Learn how to</span> create
+              attractive visuals that people love
+            </h1>
+            <p className=" mb-4 opacity-90 fluid-lg">
+              A guide on how I make my web development visuals that I share
+              online, you can check out every visual I made{" "}
+              <a
+                rel="noopener noreferrer"
+                href="https://www.webdevvisuals.com/visuals"
+                target="_blank"
+                className="text-underline text-accent-primary"
+              >
+                here
+              </a>
             </p>
+            <iframe
+              className="mx-auto  w-[600px]"
+              src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
+              data-test-id="beehiiv-embed"
+              height="52"
+              frameBorder="0"
+              scrolling="no"
+              style={{
+                margin: 0,
+                borderRadius: "0px !important",
+                backgroundColor: "transparent",
+              }}
+            ></iframe>
           </header>
-          {renderPreviews}
-        </div>
-      </main>
 
-      <footer className="my-16 mt-32">
-        <div className="">
-          <div className="mb-2 ">
-            <h2 className="text-2xl font-semibold">Join the waitlist now</h2>
-            <p className="text-md opacity-90">
-              You'll get an early access when its ready
-            </p>
+          <div
+            id="explore-section"
+            className="mx-auto mt-24 flex max-w-4xl flex-col gap-8"
+          >
+            <header className="mx-auto mb-8 text-center">
+              <h2 className="text-4xl font-semibold">What you'll learn</h2>
+              <p className="text-lg opacity-90">
+                The 3 types of visuals I distribute
+              </p>
+            </header>
+            {renderPreviews}
+          </div>
+        </main>
+
+        <footer className="my-16 mt-32">
+          <div className="">
+            <div className="mb-2 ">
+              <h2 className="text-2xl font-semibold">Join the waitlist now</h2>
+              <p className="text-md opacity-90">
+                You'll get an early access when its ready
+              </p>
+            </div>
+
+            <iframe
+              className="w-full max-w-lg"
+              src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
+              data-test-id="beehiiv-embed"
+              height="52"
+              frameBorder="0"
+              scrolling="no"
+              style={{
+                margin: 0,
+                borderRadius: "0px !important",
+                backgroundColor: "transparent",
+              }}
+            ></iframe>
           </div>
 
-          <iframe
-            className="w-full max-w-lg"
-            src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
-            data-test-id="beehiiv-embed"
-            height="52"
-            frameBorder="0"
-            scrolling="no"
-            style={{
-              margin: 0,
-              borderRadius: "0px !important",
-              backgroundColor: "transparent",
-            }}
-          ></iframe>
-        </div>
+          <div className="my-4 h-1 w-full bg-bg-secondary" />
 
-        <div className="my-4 h-1 w-full bg-bg-secondary" />
+          <div className="flex gap-4">
+            <p>© 2023 Ali Calimli. All rights reserved.</p>
 
-        <div className="flex gap-4">
-          <p>© 2023 Ali Calimli. All rights reserved.</p>
-
-          <ul className="ml-auto flex gap-1">{renderLinks}</ul>
-        </div>
-      </footer>
-    </div>
+            <ul className="ml-auto flex gap-1">{renderLinks}</ul>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 
