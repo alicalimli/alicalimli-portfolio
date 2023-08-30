@@ -63,7 +63,7 @@ main {
   pointer-event: none;
   translate: -50% -50%;
   border-radius: 50%;
-  background: linear-gradient(to right, #2563eb, #5182ef);
+  background: linear-gradient(to right, #2563eb, #6692f1);
   animation: rotate 20s infinite;
   opacity: 0.8;
 }

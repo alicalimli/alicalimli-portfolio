@@ -1,5 +1,11 @@
+import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { AiOutlineTwitter, AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import {
+  AiOutlineTwitter,
+  AiOutlineArrowDown,
+  AiFillLinkedin,
+  AiFillGithub,
+} from "react-icons/ai";
 
 const linksArray = [
   {
@@ -22,21 +28,21 @@ const previewsArray = [
     title: "Animated Visual",
     type: "video",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, sed!",
+      "Completely animated visuals showing what the code does & explaining concepts.",
   },
   {
     src: "/previews/visual-preview.webm",
     title: "Visual Preview",
     type: "video",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, sed!",
+      "A static visual but shows a sample preview of what the code does.",
   },
   {
     src: "/previews/static-visual.png",
     title: "Static Visual",
     type: "img",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, sed!",
+      "Explain concepts & show what the code can do without any motions.",
   },
 ];
 
@@ -47,17 +53,15 @@ const index = () => {
   });
 
   const blobRef = useRef<HTMLDivElement>(null);
-  const blurRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Returns function if hover is not supported
     if (window.matchMedia("(hover: none)").matches) return;
 
-    document.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e) => {
       const x = e.clientX;
       const y = e.clientY;
 
-      if (!blobRef?.current || !blurRef?.current) return;
+      if (!blobRef?.current) return;
 
       blobRef.current.animate(
         {
@@ -68,7 +72,13 @@ const index = () => {
       );
 
       setMousePos({ x, y });
-    });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   const renderPreviews = previewsArray.map(
@@ -76,7 +86,15 @@ const index = () => {
       const isEven = index % 2 === 0;
 
       return (
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: !isEven ? 50 : -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.4,
+            delay: (index + 1) * 0.05,
+            ease: "easeInOut",
+          }}
           key={title}
           className={`flex items-center justify-between gap-8 ${
             !isEven ? "flex-row-reverse" : ""
@@ -106,7 +124,7 @@ const index = () => {
             <h2 className="text-2xl font-semibold">{title}</h2>
             <p className="text-lg ">{description}</p>
           </div>
-        </div>
+        </motion.div>
       );
     }
   );
@@ -123,7 +141,7 @@ const index = () => {
     <>
       {" "}
       <div ref={blobRef} id="blob" />
-      <div ref={blurRef} id="blur" />
+      <div id="blur" />
       <div
         id="visual-handbook-page"
         className="mx-auto flex max-w-[1200px] flex-col justify-center px-vw-12"
@@ -145,37 +163,57 @@ const index = () => {
         </nav>
 
         <main className="">
-          <header className="mx-auto mt-20 flex max-w-3xl flex-col items-center justify-center gap-2 text-center ">
-            <h1 className=" text-5xl font-semibold ">
+          <motion.header
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.4,
+              delay: 0.2,
+              ease: "easeInOut",
+            }}
+            className="relative mx-auto flex min-h-[80vh] max-w-5xl flex-col items-center justify-center gap-2 pb-16 text-center "
+          >
+            <h1 className="text-4xl font-semibold md:text-5xl xl:text-6xl ">
               <span className="text-accent-primary">Learn how to</span> create
               attractive visuals that people love
             </h1>
-            <p className=" mb-4 opacity-90 fluid-lg">
+            <p className=" mb-4 max-w-4xl opacity-90 fluid-lg">
               A guide on how I make my web development visuals that I share
               online, you can check out every visual I made{" "}
               <a
                 rel="noopener noreferrer"
                 href="https://www.webdevvisuals.com/visuals"
                 target="_blank"
-                className="text-underline text-accent-primary"
+                className="underline text-accent-primary"
               >
                 here
               </a>
             </p>
-            <iframe
-              className="mx-auto  w-[600px]"
-              src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
-              data-test-id="beehiiv-embed"
-              height="52"
-              frameBorder="0"
-              scrolling="no"
-              style={{
-                margin: 0,
-                borderRadius: "0px !important",
-                backgroundColor: "transparent",
-              }}
-            ></iframe>
-          </header>
+            <div>
+              <iframe
+                className="mx-auto w-full md:w-[600px]"
+                src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
+                data-test-id="beehiiv-embed"
+                height="52"
+                frameBorder="0"
+                scrolling="no"
+                style={{
+                  margin: 0,
+                  borderRadius: "0px !important",
+                  backgroundColor: "transparent",
+                }}
+              ></iframe>
+              <p className="mt-2 text-start opacity-60 ">
+                You'll get an early access when the product is ready.
+              </p>
+            </div>
+
+            <span className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-2 opacity-60">
+              Explore more{" "}
+              <AiOutlineArrowDown className="animate-bounce text-lg" />
+            </span>
+          </motion.header>
 
           <div
             id="explore-section"
@@ -191,7 +229,17 @@ const index = () => {
           </div>
         </main>
 
-        <footer className="my-16 mt-32">
+        <motion.footer
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.4,
+            delay: 0.2,
+            ease: "easeInOut",
+          }}
+          className="my-16 mt-32"
+        >
           <div className="">
             <div className="mb-2 ">
               <h2 className="text-2xl font-semibold">Join the waitlist now</h2>
@@ -222,7 +270,7 @@ const index = () => {
 
             <ul className="ml-auto flex gap-1">{renderLinks}</ul>
           </div>
-        </footer>
+        </motion.footer>
       </div>
     </>
   );
