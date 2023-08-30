@@ -65,7 +65,7 @@ main {
   border-radius: 50%;
   background: linear-gradient(to right, #2563eb, #6692f1);
   animation: rotate 20s infinite;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 #blur {
@@ -75,5 +75,5 @@ main {
   pointer-event: none;
   z-index: -1;
   position: absolute;
-  backdrop-filter: blur(12vmax);
+  backdrop-filter: blur(10vmax);
 }

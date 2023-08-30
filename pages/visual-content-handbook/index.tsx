@@ -47,17 +47,26 @@ const previewsArray = [
 ];
 
 const index = () => {
-  const [mousePos, setMousePos] = useState({
-    x: -100,
-    y: -100,
-  });
-
+  const footerRef = useRef<HTMLElement>(null);
+  const footerFormEmbed = useRef<any>(null);
   const blobRef = useRef<HTMLDivElement>(null);
+
+  const onNavWaitlistBtnClick = () => {
+    if (!footerRef?.current || !footerFormEmbed?.current) return;
+
+    footerRef.current.scrollIntoView({ behavior: "smooth" });
+
+    footerFormEmbed.current.classList.add("animate-pulse");
+
+    setTimeout(() => {
+      footerFormEmbed?.current.classList.remove("animate-pulse");
+    }, 3000);
+  };
 
   useEffect(() => {
     if (window.matchMedia("(hover: none)").matches) return;
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;
 
@@ -70,8 +79,6 @@ const index = () => {
         },
         { duration: 3000, fill: "forwards" }
       );
-
-      setMousePos({ x, y });
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -86,7 +93,7 @@ const index = () => {
       const isEven = index % 2 === 0;
 
       return (
-        <motion.div
+        <motion.li
           initial={{ opacity: 0, x: !isEven ? 50 : -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -96,13 +103,13 @@ const index = () => {
             ease: "easeInOut",
           }}
           key={title}
-          className={`flex items-center justify-between gap-8 ${
-            !isEven ? "flex-row-reverse" : ""
+          className={`flex flex-col items-center justify-between gap-4 md:gap-8 ${
+            !isEven ? "md:flex-row-reverse" : "md:flex-row"
           }`}
         >
           <div className="rounded-2xl bg-gradient-to-b from-[#191919] to-[#111] p-8">
             {type === "video" || type === "webm" ? (
-              <div className="relative w-96">
+              <div className="relative w-full sm:w-96">
                 <video
                   className="bg-bg-main"
                   preload=""
@@ -116,7 +123,7 @@ const index = () => {
             ) : null}
 
             {type === "img" ? (
-              <img src={src} className=" w-96 " alt={title} />
+              <img src={src} className=" w-full sm:w-96 " alt={title} />
             ) : null}
           </div>
 
@@ -124,7 +131,7 @@ const index = () => {
             <h2 className="text-2xl font-semibold">{title}</h2>
             <p className="text-lg ">{description}</p>
           </div>
-        </motion.div>
+        </motion.li>
       );
     }
   );
@@ -140,8 +147,8 @@ const index = () => {
   return (
     <>
       {" "}
-      <div ref={blobRef} id="blob" />
-      <div id="blur" />
+      <div ref={blobRef} id="blob" className="hidden md:block" />
+      <div id="blur" className="hidden md:block" />
       <div
         id="visual-handbook-page"
         className="mx-auto flex max-w-[1200px] flex-col justify-center px-vw-12"
@@ -149,16 +156,21 @@ const index = () => {
         <nav className="mx-auto flex w-full py-8">
           <figure className="flex items-center gap-4">
             <img src="/images/blue-profile.png" className="h-16 w-16" />
-            <figcaption className="fluid-lg">Ali Calimli</figcaption>
+            <figcaption className="fluid-lg">
+              Ali <span className="hidden md:inline-block">Calimli</span>
+            </figcaption>
           </figure>
 
           <div className="ml-auto flex items-center gap-4">
             <a className="" href="#explore-section">
               Explore
             </a>
-            <a className="flex items-center justify-center rounded-full p-3 px-6 bg-accent-primary">
-              Join the waitlist
-            </a>
+            <button
+              onClick={onNavWaitlistBtnClick}
+              className="flex items-center justify-center rounded-full p-3 px-6 bg-accent-primary"
+            >
+              Join waitlist
+            </button>
           </div>
         </nav>
 
@@ -225,11 +237,13 @@ const index = () => {
                 The 3 types of visuals I distribute
               </p>
             </header>
-            {renderPreviews}
+
+            <ul className="flex flex-col gap-12">{renderPreviews}</ul>
           </div>
         </main>
 
         <motion.footer
+          ref={footerRef}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -249,6 +263,7 @@ const index = () => {
             </div>
 
             <iframe
+              ref={footerFormEmbed}
               className="w-full max-w-lg"
               src="https://embeds.beehiiv.com/9e9dd62a-dffb-424a-a8f9-91694b124975?slim=true"
               data-test-id="beehiiv-embed"
