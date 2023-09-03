@@ -51,6 +51,19 @@ const index = () => {
   const footerFormEmbed = useRef<any>(null);
   const blobRef = useRef<HTMLDivElement>(null);
 
+  const [isChrome, setIsChrome] = useState(false);
+
+  useEffect(() => {
+    if (
+      /Chrome/.test(navigator.userAgent) &&
+      /Google Inc/.test(navigator.vendor)
+    ) {
+      setIsChrome(true);
+    } else {
+      setIsChrome(false);
+    }
+  }, []);
+
   const onNavWaitlistBtnClick = () => {
     if (!footerRef?.current || !footerFormEmbed?.current) return;
 
@@ -146,20 +159,27 @@ const index = () => {
 
   return (
     <>
-      {" "}
-      <div ref={blobRef} id="blob" className="hidden md:block" />
-      <div id="blur" className="hidden md:block" />
+      {isChrome ? (
+        <>
+          <div ref={blobRef} id="blob" className="hidden md:block" />
+          <div id="blur" className="hidden md:block" />
+        </>
+      ) : null}
+
       <div
         id="visual-handbook-page"
         className="mx-auto flex max-w-[1200px] flex-col justify-center px-vw-12"
       >
         <nav className="mx-auto flex w-full py-8">
-          <figure className="flex items-center gap-4">
+          <a
+            href="https://bio.link/alicalimli"
+            className="flex items-center gap-4"
+          >
             <img src="/images/blue-profile.png" className="h-16 w-16" />
-            <figcaption className="fluid-lg">
+            <h6 className="fluid-lg">
               Ali <span className="hidden md:inline-block">Calimli</span>
-            </figcaption>
-          </figure>
+            </h6>
+          </a>
 
           <div className="ml-auto flex items-center gap-4">
             <a className="" href="#explore-section">
@@ -188,7 +208,7 @@ const index = () => {
           >
             <h1 className="text-4xl font-semibold md:text-5xl xl:text-6xl ">
               <span className="text-accent-primary">Learn how to</span> create
-              attractive visuals that people love
+              coding visuals that people like
             </h1>
             <p className=" mb-4 max-w-4xl opacity-90 fluid-lg">
               A guide on how I make my web development visuals that I share
