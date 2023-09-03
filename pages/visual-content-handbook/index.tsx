@@ -211,16 +211,17 @@ const index = () => {
               coding visuals that people like
             </h1>
             <p className=" mb-4 max-w-4xl opacity-90 fluid-lg">
-              A guide on how I make my web development visuals that I share
-              online, you can check out every visual I made{" "}
+              A guide on how I make my web development visuals that I put in
+              this{" "}
               <a
                 rel="noopener noreferrer"
                 href="https://www.webdevvisuals.com/visuals"
                 target="_blank"
-                className="underline text-accent-primary"
+                className="underline text-accent-tinted"
               >
-                here
+                website
               </a>
+              , By joining the waitlist you'll be subscribed to my newsletter.
             </p>
             <div>
               <iframe
