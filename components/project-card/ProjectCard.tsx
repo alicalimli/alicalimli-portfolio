@@ -44,19 +44,20 @@ const ProjectCard = ({ proj }: ProjectCardProps) => {
             <div className="flex flex-col">
               <span className="text-sm text-muted-secondary">{proj.role}</span>
               <h2 className="break-all text-4xl font-bold text-text-main">
-                {proj.name}
+                {proj.title}
               </h2>
             </div>
             <div className="ml-auto"></div>
-            <a
+            <button
               onMouseEnter={() => githubProjectCursor()}
               onMouseLeave={() => projectCursor()}
-              rel="noopener noreferrer"
-              target="_blank"
-              href={proj.github_link}
+              onClick={() =>
+                window.open(proj.sourceCode, "_blank", "noopener,noreferrer")
+              }
+              className="flex items-center justify-center"
             >
               <AiOutlineGithub className="text-4xl text-white" />
-            </a>
+            </button>
           </div>
 
           <p className="mt-4 text-lg text-muted-main">{proj.description}</p>
