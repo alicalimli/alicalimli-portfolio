@@ -32,8 +32,7 @@ const Contact = () => {
           >
             <SpringyText className="justify-center" text="Get In Touch!" />
             <h1 className="text-muted-main fluid-lg ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate, consectetur!
+              Let's chat! Hit me up on the form below or in any of my socials.
             </h1>
           </header>
           <ContactForm />
