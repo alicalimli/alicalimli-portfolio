@@ -34,7 +34,10 @@ const About = () => {
 
   return (
     <Section>
-      <main className="flex items-center justify-center gap-4 md:justify-start">
+      <main
+        id="about-section"
+        className="flex items-center justify-center gap-4 md:justify-start"
+      >
         <header
           className="
           flex 

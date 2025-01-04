@@ -10,25 +10,26 @@ import { useCursorContext } from "../../hooks";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import data from "../../data.json";
+import { projects } from "../../sections/projects/Projects";
 
 const otherProjectsArr = [
   {
     name: "Quizzical",
     role: "Development",
     link: "https://quizzical-ali.netlify.app/",
-    img: "quizzical.jpg",
+    img: "https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fquizzical.webp?alt=media&token=526c087c-cc2a-41e7-9649-6a4b83da42cb",
   },
   {
     name: "Clipboard",
     role: "Development",
     link: "https://clipboard-ali.netlify.app/",
-    img: "clipboard.jpg",
+    img: "https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fclipboard.webp?alt=media&token=68b0f75a-ca19-4b21-a13c-750d55b23b5c",
   },
   {
     name: "Todo list",
     role: "Design & Development",
     link: "https://todo-list-ali.netlify.app/",
-    img: "todolist.jpg",
+    img: "https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Ftodolist.webp?alt=media&token=20a8b1ef-ae13-444a-9bed-73492fecbc30",
   },
 ];
 
@@ -61,7 +62,7 @@ const Projects = () => {
 
   const projectMouseLeave = () => defaultCursor();
 
-  const featuredProjects = data.featuredProjects.map((proj) => (
+  const featuredProjects = projects.map((proj) => (
     <li key={proj.name}>
       <ProjectCard proj={proj} />
     </li>
@@ -99,14 +100,19 @@ const Projects = () => {
           left-0
         `}
       >
-        <Image
-          src={`/images/${proj.img}`}
+        <img
+          src={proj.img}
           alt={""}
-          width={542}
-          height={542}
           className={`
             invisible
-            scale-50
+            z-10
+            aspect-square
+        w-[400px]
+        scale-50
+        rounded-[8px]
+            border
+            border-[#fff]/20 bg-[#111]
+            object-cover
             opacity-0
             duration-400
             ease-in-out
@@ -155,9 +161,7 @@ const Projects = () => {
         <title>Projects</title>
       </Head>
 
-      <SpringyText className="justify-center" text="Coming soon...." />
-
-      {/* <main className="flex flex-col gap-4">
+      <main className="flex flex-col gap-4">
         <Section className="flex flex-col gap-8">
           <SpringyText className="justify-center" text="Featured Projects" />
           <ul
@@ -177,8 +181,8 @@ const Projects = () => {
           <ul className="flex flex-col">{otherProjects}</ul>
         </Section>
 
-        <PrimaryButton name={"Contact Me"} className="mx-auto" /> 
-      </main> */}
+        <PrimaryButton name={"Contact Me"} className="mx-auto" />
+      </main>
     </>
   );
 };

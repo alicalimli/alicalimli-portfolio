@@ -18,15 +18,15 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
   const navLinksArr = [
     {
       link: "About",
-      path: "/about",
+      path: "#about-section",
     },
     {
       link: "Projects",
-      path: "/projects",
+      path: "#projects-section",
     },
     {
       link: "Contact",
-      path: "/contact",
+      path: "#contact-section",
     },
   ];
 

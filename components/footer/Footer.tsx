@@ -11,6 +11,7 @@ const socialsArr = [
 
 const Footer = () => {
   const { pathname } = useRouter();
+  const currentYear = new Date().getFullYear();
 
   const socials = socialsArr.map((social) => (
     <li key={social.name}>
@@ -41,7 +42,7 @@ const Footer = () => {
           text-sm text-white
         "
       >
-        Designed & Developed by Ali Calimli
+        © {currentYear} Designed and Developed by Ali Calimli
       </p>
       <ul
         className="

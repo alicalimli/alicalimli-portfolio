@@ -33,7 +33,12 @@ const Layout = ({ children }) => {
   return (
     <>
       <main ref={scrollContainerRef} className=" h-screen  overflow-y-scroll">
-        <HamburgerMenu showNavBtn={showNavBtn} setShowNavBtn={setShowNavBtn} />
+        {pathname === "/" && (
+          <HamburgerMenu
+            showNavBtn={showNavBtn}
+            setShowNavBtn={setShowNavBtn}
+          />
+        )}
         <CustomCursor />
         {pathname !== "/" && <Navbar />}
         {children}

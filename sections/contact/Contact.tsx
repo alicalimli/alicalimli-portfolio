@@ -21,7 +21,7 @@ const Contact = () => {
 
   return (
     <Section className="pb-12">
-      <main className="flex gap-16">
+      <main id="contact-section" className="flex gap-16">
         <div className="flex w-full flex-col gap-12">
           <header
             className="flex flex-col items-center           

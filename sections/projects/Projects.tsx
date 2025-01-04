@@ -47,6 +47,7 @@ const Projects = () => {
       <Navbar />
 
       <main
+        id="projects-section"
         className="
           flex 
           flex-col 
