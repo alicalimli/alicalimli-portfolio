@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Head from "next/head";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import {
   PrimaryButton,
   ProjectCard,
   Section,
   SpringyText,
 } from "../../components";
+import { WEBSITE_DATA } from "../../data";
 import { useCursorContext } from "../../hooks";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import data, { WEBSITE_DATA } from "../../data";
-import Link from "next/link";
 
 const Projects = () => {
   const { defaultCursor, otherProjectCursor } = useCursorContext();
@@ -42,7 +41,7 @@ const Projects = () => {
   const projectMouseLeave = () => defaultCursor();
 
   const featuredProjects = WEBSITE_DATA.featuredProjects.map((proj) => (
-    <li key={proj.name}>
+    <li key={proj.title}>
       <ProjectCard proj={proj} />
     </li>
   ));
