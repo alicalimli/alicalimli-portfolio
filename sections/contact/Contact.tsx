@@ -3,15 +3,10 @@ import ContactForm from "./ContactForm";
 import { Section, SpringyText } from "../../components";
 import TwLink from "../../components/tw-link/TwLink";
 import Image from "next/image";
-
-const socialsArr = [
-  { name: "LinkedIn", link: "https://www.linkedin.com/in/alicalimli/" },
-  { name: "Twitter", link: "https://twitter.com/alicalimli_dev" },
-  { name: "Github", link: "https://github.com/alicalimli" },
-];
+import { WEBSITE_DATA } from "../../data";
 
 const Contact = () => {
-  const socials = socialsArr.map((social) => (
+  const socials = WEBSITE_DATA.socials.map((social) => (
     <li key={social.name}>
       <TwLink className="text-lg text-white" href={social.link}>
         {social.name}
@@ -30,28 +25,31 @@ const Contact = () => {
             md:items-start
             md:text-left"
           >
-            <SpringyText className="justify-center" text="Get In Touch!" />
+            <SpringyText
+              className="justify-center"
+              text={WEBSITE_DATA.contactSectionTitle}
+            />
             <h1 className="text-muted-main fluid-lg ">
-              Let's chat! Hit me up on the form below or in any of my socials.
+              {WEBSITE_DATA.contactSectionSubtitle}
             </h1>
           </header>
           <ContactForm />
         </div>
         <div className="hidden w-1/2 flex-col gap-4 lg:flex">
           <Image
-            src="/images/profile.jpeg"
+            src={WEBSITE_DATA.profilePicture}
             width={112}
             height={112}
             className="rounded-full"
-            alt={"Ali Calimli's Profile Picture"}
+            alt={`${WEBSITE_DATA.fullName}'s Profile Picture`}
           />
           <div>
             <h3 className="fluid-md text-muted-secondary">Email</h3>
             <TwLink
               className="text-lg text-white"
-              href="mailto:alicalimli76@gmail.com"
+              href={`mailto:${WEBSITE_DATA.email}`}
             >
-              alicalimli76@gmail.com
+              {WEBSITE_DATA.email}
             </TwLink>
           </div>
           <div>

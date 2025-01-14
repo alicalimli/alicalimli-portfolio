@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Lottie from "react-lottie";
 import { Chip, PrimaryButton, Section, SpringyText } from "../../components";
 import Link from "next/link";
+import { WEBSITE_DATA } from "../../data";
 
 const myTools = [
   "HTML",
@@ -36,7 +37,7 @@ const About = () => {
     <Section>
       <main
         id="about-section"
-        className="flex items-center justify-center gap-4 md:justify-start"
+        className="mb-24 flex items-center justify-center gap-4 md:justify-start"
       >
         <header
           className="
@@ -51,18 +52,17 @@ const About = () => {
           md:text-left
         "
         >
-          <SpringyText className="justify-center" text="A Little About Me" />
+          <SpringyText
+            className="justify-center"
+            text={WEBSITE_DATA.aboutSectionTitle}
+          />
           <p className="text-muted-main fluid-lg">
-            Focused on building awesome and high-quality websites that are also
-            visually appealing and easy to use. I have a strong foundation in
-            HTML, CSS, and JavaScript, and I'm proficient in using React. I love
-            learning something new and I'm always looking to improve my skills
-            and stay up-to-date on the latest front-end technologies. <br />
+            {WEBSITE_DATA.aboutSectionDescription} <br />
           </p>
 
-          <Link href="/about" className="mt-8 w-fit">
+          {/* <Link href="/about" className="mt-8 w-fit">
             <PrimaryButton name="More About Me" />
-          </Link>
+        </Link> */}
         </header>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}

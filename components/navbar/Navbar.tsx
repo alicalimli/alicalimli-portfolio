@@ -18,15 +18,15 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
   const navLinksArr = [
     {
       link: "About",
-      path: "#about-section",
+      path: "/#about-section",
     },
     {
       link: "Projects",
-      path: "#projects-section",
+      path: "/#projects-section",
     },
     {
       link: "Contact",
-      path: "#contact-section",
+      path: "/#contact-section",
     },
   ];
 
@@ -61,7 +61,7 @@ const Navbar = ({ type = "secondary" }: NavbarProps) => {
         </nav>
       ) : (
         <nav className="flex items-center gap-4 p-4 px-8 lg:p-8 lg:px-16">
-          <Link href="/" className="text-white fluid-xl">
+          <Link href="/" className="font-bold text-white fluid-xl">
             {Name}
           </Link>
           {navLinks}

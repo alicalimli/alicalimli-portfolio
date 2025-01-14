@@ -9,29 +9,8 @@ import {
 import { useCursorContext } from "../../hooks";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import data from "../../data.json";
-import { projects } from "../../sections/projects/Projects";
-
-const otherProjectsArr = [
-  {
-    name: "Quizzical",
-    role: "Development",
-    link: "https://quizzical-ali.netlify.app/",
-    img: "https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fquizzical.webp?alt=media&token=526c087c-cc2a-41e7-9649-6a4b83da42cb",
-  },
-  {
-    name: "Clipboard",
-    role: "Development",
-    link: "https://clipboard-ali.netlify.app/",
-    img: "https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fclipboard.webp?alt=media&token=68b0f75a-ca19-4b21-a13c-750d55b23b5c",
-  },
-  {
-    name: "Todo list",
-    role: "Design & Development",
-    link: "https://todo-list-ali.netlify.app/",
-    img: "https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Ftodolist.webp?alt=media&token=20a8b1ef-ae13-444a-9bed-73492fecbc30",
-  },
-];
+import data, { WEBSITE_DATA } from "../../data";
+import Link from "next/link";
 
 const Projects = () => {
   const { defaultCursor, otherProjectCursor } = useCursorContext();
@@ -62,7 +41,7 @@ const Projects = () => {
 
   const projectMouseLeave = () => defaultCursor();
 
-  const featuredProjects = projects.map((proj) => (
+  const featuredProjects = WEBSITE_DATA.featuredProjects.map((proj) => (
     <li key={proj.name}>
       <ProjectCard proj={proj} />
     </li>
@@ -81,7 +60,7 @@ const Projects = () => {
     },
   };
 
-  const otherProjects = otherProjectsArr.map((proj) => (
+  const otherProjects = WEBSITE_DATA.otherProjects.map((proj) => (
     <li
       key={proj.name}
       onMouseEnter={() => otherProjMouseEnter(proj.img)}
@@ -176,12 +155,21 @@ const Projects = () => {
           </ul>
         </Section>
 
-        <Section>
-          <SpringyText className="mb-8 justify-center" text="Other Projects" />
-          <ul className="flex flex-col">{otherProjects}</ul>
-        </Section>
+        <div id="other-projects">
+          {" "}
+          <Section>
+            <SpringyText
+              className="mb-8 justify-center"
+              text="Other Projects"
+            />
+            <ul className="flex flex-col">{otherProjects}</ul>
+          </Section>
+        </div>
 
-        <PrimaryButton name={"Contact Me"} className="mx-auto" />
+        <Link className="mx-auto mt-8" href={"/#contact-section"}>
+          {" "}
+          <PrimaryButton name={"Contact Me"} className="mx-auto" />
+        </Link>
       </main>
     </>
   );

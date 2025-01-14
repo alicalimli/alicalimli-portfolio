@@ -1,19 +1,13 @@
 import { useRouter } from "next/router";
 import TwLink from "../tw-link/TwLink";
 import React from "react";
-
-const socialsArr = [
-  { name: "Twitter", link: "https://twitter.com/alicalimli_dev" },
-  { name: "LinkedIn", link: "https://www.linkedin.com/in/alicalimli/" },
-  { name: "Github", link: "https://github.com/alicalimli" },
-  { name: "Blog", link: "https://alicalimli.hashnode.dev/" },
-];
+import { WEBSITE_DATA } from "../../data";
 
 const Footer = () => {
   const { pathname } = useRouter();
   const currentYear = new Date().getFullYear();
 
-  const socials = socialsArr.map((social) => (
+  const socials = WEBSITE_DATA.socials.map((social) => (
     <li key={social.name}>
       <TwLink className="text-sm text-white" href={social.link}>
         {social.name}
@@ -42,7 +36,7 @@ const Footer = () => {
           text-sm text-white
         "
       >
-        © {currentYear} Designed and Developed by Ali Calimli
+        © Copyright {currentYear} {WEBSITE_DATA.fullName}.
       </p>
       <ul
         className="
