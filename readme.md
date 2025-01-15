@@ -34,6 +34,25 @@ npm run dev
 
 ---
 
+## Contact Form Activation
+
+The contact form in this portfolio uses [FormSubmit](https://formsubmit.co) for handling form submissions.
+
+Its free to use and i have been using it personally.
+
+Follow these steps to activate the contact form:
+
+1. Deploy your website.
+2. Use the contact form on your deployed website to send a test message.
+3. Check your email inbox for an activation email from FormSubmit.
+4. Click the "Activate" button in the email.
+
+That's it! Your contact form will now work as intended.
+
+You can send another message to test it out.
+
+FormSubmit is free and works well for me.
+
 ## Customization
 
 ### Modify Content
@@ -61,11 +80,5 @@ The main page of the portfolio is located in `pages/index.tsx`, and all the sect
 - For Vercel:
   1. Link your GitHub repository.
   2. Deploy directly from the main branch.
-
----
-
-## Recommended Tools
-
-- **Image Optimization**: You can use [CloudConvert](https://cloudconvert.com/png-to-webp) to convert from png to webp.
 
 ---

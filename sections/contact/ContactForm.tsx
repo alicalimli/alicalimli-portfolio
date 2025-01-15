@@ -59,22 +59,19 @@ const ContactForm = () => {
     const message = e.target[3].value;
 
     try {
-      await fetch(
-        "https://formsubmit.co/ajax/779a1f0fbd51622e61c543e0ced860ab",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            subject: subject,
-            message: message,
-          }),
-        }
-      );
+      await fetch("https://formsubmit.co/ajax/" + WEBSITE_DATA.email, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          subject: subject,
+          message: message,
+        }),
+      });
 
       setIsSending(false);
       formRef?.current?.reset();

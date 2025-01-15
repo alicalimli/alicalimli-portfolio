@@ -1,6 +1,6 @@
 export const WEBSITE_DATA = {
   fullName: "Ali Calimli",
-  email: "alicalimli76@gmail.com",
+  email: "alicalimli.dev@gmail.com",
   profilePicture: "/images/profile.jpeg",
   briefDescription: "I build awesome and high-quality web applications.",
 
