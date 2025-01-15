@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import TwLink from "../../components/tw-link/TwLink";
+import { WEBSITE_DATA } from "../../data";
 
 const MySwal = withReactContent(Swal);
 
@@ -96,8 +97,8 @@ const ContactForm = () => {
         html: (
           <p>
             Please try again or send me an email directly at:{" "}
-            <TwLink className="text-lg" href="mailto:alicalimli76@gmail.com">
-              alicalimli76@gmail.com
+            <TwLink className="text-lg" href={`mailto:${WEBSITE_DATA.email}`}>
+              {WEBSITE_DATA.email}
             </TwLink>
           </p>
         ),

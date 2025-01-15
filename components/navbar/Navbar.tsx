@@ -4,12 +4,13 @@ import React from "react";
 import Section from "../section/Section";
 import SpringyText from "../springy-text/SpringyText";
 import TwLink from "../tw-link/TwLink";
+import { WEBSITE_DATA } from "../../data";
 
 interface NavbarProps {
   type?: "main" | "secondary";
 }
 
-const Name = "Ali Calimli";
+const Name = WEBSITE_DATA.fullName;
 
 const Navbar = ({ type = "secondary" }: NavbarProps) => {
   const { pathname } = useRouter();
