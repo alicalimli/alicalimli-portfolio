@@ -38,14 +38,13 @@ npm run dev
 
 The contact form in this portfolio uses [FormSubmit](https://formsubmit.co) for handling form submissions.
 
-Its free to use and i have been using it personally.
+Its free to use and I have been using it personally.
 
 Follow these steps to activate the contact form:
 
-1. Deploy your website.
-2. Use the contact form on your deployed website to send a test message.
-3. Check your email inbox for an activation email from FormSubmit.
-4. Click the "Activate" button in the email.
+1. Once you deploy your website, Use the contact form to send a test message.
+2. Check your email inbox for an activation email from FormSubmit.
+3. Click the "Activate" button in the email.
 
 That's it! Your contact form will now work as intended.
 
