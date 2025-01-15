@@ -7,7 +7,7 @@ A minimalistic and beautifully animated developer portfolio template built with:
 - **Framer Motion**
 - **TypeScript**
 
-https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fv2-portfolio-preview.mp4?alt=media&token=1cd02826-1b31-4ae1-9658-7ce9e2d4d2bd
+![Portfolio Website Screenshot](https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fv2-portfolio.png?alt=media&token=27f89225-e3c0-4c7c-8026-0c1edb864479)
 
 ---
 
