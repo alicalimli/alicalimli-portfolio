@@ -7,6 +7,8 @@ A minimalistic and beautifully animated developer portfolio template built with:
 - **Framer Motion**
 - **TypeScript**
 
+https://firebasestorage.googleapis.com/v0/b/webdev-visuals.appspot.com/o/misc%2Fv2-portfolio-preview.mp4?alt=media&token=1cd02826-1b31-4ae1-9658-7ce9e2d4d2bd
+
 ---
 
 ## Getting Started
@@ -37,6 +39,8 @@ npm run dev
 ### Modify Content
 
 All website content, including meta tags, titles, descriptions, and project details, can be edited in the `data.ts` file located in the root directory.
+
+The main page of the portfolio is located in `pages/index.tsx`, and all the sections of the website are imported from the `sections/` folder.
 
 ### Project Images
 
